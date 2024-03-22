@@ -1,0 +1,39 @@
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    margin-top: auto;
+}
+
+.button.navbar-item {
+    height: auto
+}
+
+.logo-emoji {
+    margin: 0 10px;
+}
+
+.form-link {
+    margin-left: 3px;
+}
+
+span.logout {
+    cursor: pointer;
+}
+
+section.section {
+    min-height: calc(100vh - 11.25rem);
+}
+
+$footer-background-color: #363636;
+$footer-padding: 2rem 1.5rem;
+$box-padding: 1rem;
+
+// ! example on how to customize, skip to section "Add your own Bulma styles":
+// https://bulma.io/documentation/customize/with-sass-cli/
+
+// ? Import bulma, all customizations should live above this line.
+@import "../../node_modules/bulma/bulma.sass";
