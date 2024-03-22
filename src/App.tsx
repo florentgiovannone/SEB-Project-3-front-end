@@ -20,7 +20,7 @@ function App() {
 
   async function fetchUser() {
     const token = localStorage.getItem('token')
-    const resp = await axios.get('/api/rouge/user', {
+    const resp = await axios.get("/api/rouge/user", {
       headers: { Authorization: `Bearer ${token}` }
     })
     setUser(resp.data)

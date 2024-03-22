@@ -3,7 +3,7 @@ import { IWines } from "../interfaces/wine"
 
 function WineCard({_id, winery, wineName, region, country, style, grapes, vintage }: IWines) {
     return <div className="">
-    <Link to={`/wines/${_id}`}>
+    <Link to={`rouge/wines/${_id}`}>
       <div className="">
         <div className="">
           <div className="">{`${winery}`}</div>
