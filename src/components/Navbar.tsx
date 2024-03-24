@@ -40,12 +40,12 @@ function Navbar({ user, setUser }: NavbarProps) {
                           </Link>}
             
               {user && <button onClick={logout} className="">Logout</button>}
-              <Link to="/signup" className="">
+              {!user && <Link to="/signup" className="">
                 Sign Up
-            </Link>
-                    <Link to="/login" className="">
+            </Link>}
+              {!user && <Link to="/login" className="">
                 Login
-              </Link>
+              </Link>}
             </div>
           </div>
         </nav>

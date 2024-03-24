@@ -10,14 +10,12 @@ import axios from "axios"
 // import ShowWine from "./components/ShowWine"
 import AboutUs from "./components/AboutUs"
 import ContactUs from "./components/ContactUs"
-
-
-
+import Footer from "./components/footer"
+import Wave from "react-wavify";
 
 function App() {
   
   const [user, setUser] = useState(null)
-
   async function fetchUser() {
     const token = localStorage.getItem('token')
     const resp = await axios.get("/api/rouge/user", {
@@ -44,6 +42,7 @@ function App() {
         {/* <Route path="/wines/:wineId" element={<ShowWine user={user}/>} /> */}
       </Routes>
     </Router>
+    
   )
 }
 
