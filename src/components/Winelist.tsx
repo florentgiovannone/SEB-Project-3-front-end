@@ -15,9 +15,9 @@ function wineList() {
     fetchWines()
   }, [])
   console.log(wines);
-  return <section className="">
-    <div className="">
-      <div className="">
+  return <section className="container m-6">
+    <div className="columns is-centered ">
+      <div className="columns is-multiline">
         {wines?.map((wine) => {
           return <WineCard
           key={wine._id}

@@ -1,11 +1,15 @@
 .card {
-    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
+.container{
+    width: 300px;
+}
+
 .card-content {
     margin-top: auto;
+    border-bottom: 3px solid #9F2A43;
 }
 
 .button.navbar-item {
@@ -47,6 +51,9 @@ section.section {
 }
 
 .is-rouge {
+    color: #9F2A43 !important;
+}
+.background-is-rouge {
     background-color: #9F2A43 !important;
     color: white !important;
     border: 0 solid #9F2A43 !important;
@@ -54,6 +61,10 @@ section.section {
 
 .is-grey{
     color: #D7D5C6 !important;
+}
+
+.background-is-grey {
+    background-color: #D7D5C6 !important;
     border: 0 solid #D7D5C6 !important;
 }
 

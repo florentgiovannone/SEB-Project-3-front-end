@@ -15,7 +15,7 @@ function Footer() {
       speed: 0.3,
       points: 3
     }} />
-    <footer className="footer is-rouge p-0">
+    <footer className="footer background-is-rouge p-0">
       <div className="content has-text-white has-text-centered">
         <Link to="/" className="m-6 is-grey">
           Home

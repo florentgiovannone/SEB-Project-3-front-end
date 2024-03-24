@@ -7,5 +7,6 @@ export interface IWines {
     style: string,
     grapes: string,
     vintage: number,
-    userName: string
+    userName: string,
+    image: string
   }
