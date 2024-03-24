@@ -1,6 +1,7 @@
 import React from "react"
 import WineCard from "./Winecard"
 import { IWines } from "../interfaces/wine"
+import Footer from "./footer"
 
 
 type Wines = null | Array<IWines>
@@ -15,7 +16,7 @@ function wineList() {
     fetchWines()
   }, [])
   console.log(wines);
-  return <section className="container m-6">
+  return <><section className="container m-6">
     <div className="columns is-centered ">
       <div className="columns is-multiline">
         {wines?.map((wine) => {
@@ -26,6 +27,9 @@ function wineList() {
         })}
       </div>
     </div>
+
   </section>
+      <Footer />
+  </>
 }
 export default wineList
