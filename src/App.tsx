@@ -7,7 +7,7 @@ import Login from "./components/Login"
 // import Create from "./components/"
 import { useEffect, useState } from "react"
 import axios from "axios"
-// import ShowWine from "./components/ShowWine"
+import ShowWine from "./components/ShowWine"
 import AboutUs from "./components/AboutUs"
 import ContactUs from "./components/ContactUs"
 
@@ -41,7 +41,7 @@ function App() {
         {/* <Route path="/create" element={<Create />} /> */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login fetchUser={fetchUser}/>} />
-        {/* <Route path="/wines/:wineId" element={<ShowWine user={user}/>} /> */}
+        <Route path="/wines/:wineId" element={<ShowWine user={user}/>} />
       </Routes>
     </Router>
   )
