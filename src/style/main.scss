@@ -88,39 +88,53 @@ $box-padding: 1rem;
 //Navbar styling
 
 .navbar-menu {
-    background-color: #ffffff !important; /* This is equivalent to bg-white in Tailwind */
+    background-color: #ffffff !important; 
+    
   }
 
-.navbar-brand, .navbar-item, .button {
+.navbar-brand{
     font-size: 1.125rem !important; 
     font-weight: 600 !important; 
-    color: #1a202c !important; 
-  }
-  
-  .navbar-brand:hover, .navbar-item:hover, .button:hover {
-    color: #ffffff !important; 
-    background-color: $primary-colour-rouge ;
+    // color: #1a202c !important; 
+    
   }
 
-  .button:hover {
-    color: #1a202c !important; 
-    background-color: #ffffff !important;
+  .navbar-item {
+    font-size: 1.125rem !important; 
+    font-weight: 600 !important; 
+    color: black !important; 
+    background-color: #ffffff;
   }
   
+  .navbar-brand:hover {
+    color: #ffffff ; 
+    background-color: $primary-colour-rouge;
+  }
+
+  .navbar-item:hover {
+    color: #ffffff !important ; 
+     background-color: $primary-colour-rouge;
+  }
+  
+  .navbar-item .button:hover {
+    background-color: inherit; // Or set to any specific color you want
+  }
   
   .button {
-    background-color: #edf2f7 !important; 
+    background-color: #edf2f7; 
   }
   
   .button:hover {
-    background-color: #e2e8f0 !important; 
+    color: #ffffff !important; 
+    background-color: $primary-colour-rouge;
   }
+
   
 
 //navbar logo
-//   .navbar-brand {
-//     background-color: #ffffff !important; 
-//   }
+  .navbar-brand {
+    background-color: #ffffff !important; 
+  }
 
 
 

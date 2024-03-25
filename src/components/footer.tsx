@@ -34,7 +34,7 @@ function Footer() {
       <div className="has-text-centered is-grey">
         <div className="centered-container">
           <figure className=" p-4 image is-96x96">
-            <img src="src/assets/rougepict.png" alt="Rouge Logo" />
+            <img src="src/assets/rouge_logo.png" alt="Rouge Logo" />
           </figure>
           <h3>&copy; Rouge</h3>
         </div>
