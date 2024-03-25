@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { IUser } from "../interfaces/user"
 import Wave from "react-wavify"
+import footerLogo from "../assets/rougepict.png"
 
 
 function Footer() {

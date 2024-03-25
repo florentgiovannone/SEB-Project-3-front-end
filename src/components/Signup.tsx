@@ -43,11 +43,12 @@ export default function Signup() {
   return <div className="section">
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <div className="field">
+        <div className="field  mt-4">
           <label className="label">Username</label>
           <div className="control">
             <input
-              className="input"
+              className="input border-is-rouge"
+              placeholder="Username"
               type="text"
               name={'username'}
               onChange={handleChange}
@@ -56,11 +57,12 @@ export default function Signup() {
             {errorData.username && <small className="has-text-danger">{errorData.username}</small>}
           </div>
         </div>
-        <div className="field">
+        <div className="field  mt-4">
           <label className="label">Email</label>
           <div className="control">
             <input
-              className="input"
+              className="input border-is-rouge"
+              placeholder="Email"
               type="text"
               name={'email'}
               onChange={handleChange}
@@ -69,11 +71,12 @@ export default function Signup() {
             {errorData.email && <small className="has-text-danger">{errorData.email}</small>}
           </div>
         </div>
-        <div className="field">
+        <div className="field  mt-4">
           <label className="label">Password</label>
           <div className="control">
             <input
-              className="input"
+              className="input border-is-rouge"
+              placeholder="Password"
               type="password"
               name={'password'}
               onChange={handleChange}
@@ -82,11 +85,12 @@ export default function Signup() {
             {errorData.password && <small className="has-text-danger">{errorData.password}</small>}
           </div>
         </div>
-        <div className="field">
+        <div className="field  mt-4">
           <label className="label">Confirm password</label>
           <div className="control">
             <input
-              className="input"
+              className="input border-is-rouge"
+              placeholder="Confirm password"
               type="password"
               name={'passwordConfirmation'}
               onChange={handleChange}
@@ -95,7 +99,7 @@ export default function Signup() {
             {errorData.passwordConfirmation && <small className="has-text-danger">{errorData.passwordConfirmation}</small>}
           </div>
         </div>
-        <button className="button">Submit</button>
+        <button className="button border-is-rouge  mt-4">Submit</button>
       </form>
     </div>
   </div>

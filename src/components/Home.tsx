@@ -2,6 +2,7 @@ import React from "react"
 import Footer from "./footer"
 
 
+
 function Home() {
   React.useEffect(() => {
     console.log("The Home Page is ready!")

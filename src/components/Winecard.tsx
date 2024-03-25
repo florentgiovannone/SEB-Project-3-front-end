@@ -12,13 +12,13 @@ function WineCard({ _id, winery, wineName, region, country, style, grapes, vinta
       </div>
       <div className="card-content background-is-grey">
         <Link to={`/wines/${_id}`}>
-          <div className="content has-text-centered">
-            <h5 className="title is-size-6 has-text-black	">{`Country/Region:`}</h5>
-            <h5 className="is-size-6 is-rouge has-text-weight-light">{`${country} / ${region}`}</h5>
-            <h5 className="title is-size-6 has-text-black	">{`Style:`}</h5>
-            <h5 className="is-size-6 is-rouge has-text-weight-light">{style}</h5>
-            <h5 className="title is-size-6 has-text-black">{`Vintage:`}</h5>
-            <h5 className="is-size-6 is-rouge has-text-weight-light">{vintage}</h5>
+          <div className="card-image">
+            <figure className="image has-ratio is-4by5">
+              <img
+                src={`${image}`}
+                alt="Placeholder image"
+              />
+            </figure>
           </div>
         </Link>
       </div>

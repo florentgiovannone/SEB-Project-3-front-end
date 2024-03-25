@@ -56,10 +56,15 @@ section.section {
 .is-rouge {
     color: #9F2A43 !important;
 }
+
 .background-is-rouge {
     background-color: #9F2A43 !important;
     color: white !important;
     border: 0 solid #9F2A43 !important;
+}
+
+.border-is-rouge {
+    border: 1px solid #9F2A43 !important;
 }
 
 .is-grey{
