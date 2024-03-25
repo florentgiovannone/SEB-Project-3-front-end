@@ -1,3 +1,6 @@
+$primary-colour-rouge: #9F2A43;
+
+
 .card {
     display: flex;
     flex-direction: column;
@@ -81,6 +84,47 @@ svg {
 $footer-background-color: #D7D5C6;
 $footer-padding: 2rem 1.5rem;
 $box-padding: 1rem;
+
+//Navbar styling
+
+.navbar-menu {
+    background-color: #ffffff !important; /* This is equivalent to bg-white in Tailwind */
+  }
+
+.navbar-brand, .navbar-item, .button {
+    font-size: 1.125rem !important; 
+    font-weight: 600 !important; 
+    color: #1a202c !important; 
+  }
+  
+  .navbar-brand:hover, .navbar-item:hover, .button:hover {
+    color: #ffffff !important; 
+    background-color: $primary-colour-rouge ;
+  }
+
+  .button:hover {
+    color: #1a202c !important; 
+    background-color: #ffffff !important;
+  }
+  
+  
+  .button {
+    background-color: #edf2f7 !important; 
+  }
+  
+  .button:hover {
+    background-color: #e2e8f0 !important; 
+  }
+  
+
+//navbar logo
+//   .navbar-brand {
+//     background-color: #ffffff !important; 
+//   }
+
+
+
+
 
 // ! example on how to customize, skip to section "Add your own Bulma styles":
 // https://bulma.io/documentation/customize/with-sass-cli/
