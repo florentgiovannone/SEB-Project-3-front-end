@@ -39,11 +39,12 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
   return <div className="section">
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <div className="field">
-          <label className="label">username</label>
+        <div className="field mt-4">
+          <label className="label">Username</label>
           <div className="control">
             <input
-              className="input"
+              className="input border-is-rouge"
+              placeholder="Username"
               type="text"
               name={'userName'}
               onChange={handleChange}
@@ -51,11 +52,12 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
             />
           </div>
         </div>
-        <div className="">
+        <div className="field mt-4">
           <label className="label">Password</label>
           <div className="control">
             <input
-              className="input"
+              className="input border-is-rouge"
+              placeholder="Password"
               type="password"
               name={'password'}
               onChange={handleChange}
@@ -64,7 +66,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
           </div>
           {errorMessage && <small className="has-text-danger">{errorMessage}</small>}
         </div>
-        <button className="button">Submit</button>
+        <button className="button border-is-rouge mt-4">Submit</button>
       </form>
     </div>
   </div>

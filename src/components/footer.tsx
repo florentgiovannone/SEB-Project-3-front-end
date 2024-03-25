@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { IUser } from "../interfaces/user"
 import Wave from "react-wavify"
+import footerLogo from "../assets/rougepict.png"
 
 
 function Footer() {
@@ -34,7 +35,7 @@ function Footer() {
       <div className="has-text-centered is-grey">
         <div className="centered-container">
           <figure className=" p-4 image is-96x96">
-            <img src="src/assets/rougepict.png" alt="Rouge Logo" />
+            <img src={footerLogo}alt="Rouge Logo" />
           </figure>
           <h3>&copy; Rouge</h3>
         </div>
