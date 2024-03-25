@@ -5,6 +5,8 @@ import ProductPage from "./ProductPage"
 import WineCard from "./Winecard"
 import axios from "axios"
 import { IUser } from "../interfaces/user"
+import Footer from "./footer"
+
 
 function Showwine({ user }: { user: null | IUser }) {
     const [wine, updatewines] = React.useState<IWines | null>(null)
@@ -40,15 +42,19 @@ function Showwine({ user }: { user: null | IUser }) {
     console.log(user);
 
 
-    return <section className="section">
-        <div className="container is-widescreen">
+    return <> <section className="section">
+        <div className="container has-text-centered is-widescreen">
 
                 {wine && <ProductPage
                     key={wine._id}
                     {...wine}
                 />}
-            {wine && user && (user._id === wine.userName) && <button onClick={deleteWine} className="button is-danger">Delete</button>}</div>
+                
+            {wine && user && (user._id === wine.userName) && <button onClick={deleteWine} className="button m-6  border-is-rouge">Delete</button>}
+            {wine && user && (user._id === wine.userName) && <button onClick={deleteWine} className="button m-6  border-is-rouge">Update</button>}</div>
+            
     </section>
+      <Footer /> </>
 }
 
 export default Showwine
