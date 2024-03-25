@@ -12,6 +12,8 @@ function Home() {
     <section className="hero is-fullheight" style={{ position: "relative" }}>
       <div className="hero-body p-6">
         <div className="container has-text-centered p-6">
+          <div className="columns is-centered">
+          <div className="column is-half">
           <h1 className="title has-text-white">
             Rouge
           </h1>
@@ -19,6 +21,8 @@ function Home() {
             an intuitiven & powerfull ine cellar builder
           </h2>
           <button className="button background-is-rouge m-4">Get Started</button>
+          </div>
+          </div>
         </div>
       </div>
       <Footer />

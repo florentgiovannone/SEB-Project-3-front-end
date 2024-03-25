@@ -22,10 +22,10 @@ function Navbar({ user, setUser }: NavbarProps) {
           <Link to="/" className="navbar-item">
             <img
               alt="Logo"
-              src="./src/assets/rougepict.png"
+              src="./src/assets/rouge_logo.png"
               style={{
-                height: '60px',
-                width: '60px',
+                height: '120px',
+                width: '120px',
                 objectFit: 'cover',
               }}
             />
@@ -60,10 +60,10 @@ function Navbar({ user, setUser }: NavbarProps) {
                   </button>
                 ) : (
                   <>
-                    <Link to="/signup" className="button is-light is-size-5 has-text-weight-semibold">
+                    <Link to="/signup" className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper">
                       Sign Up
                     </Link>
-                    <Link to="/login" className="button is-light is-size-5 has-text-weight-semibold">
+                    <Link to="/login" className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper">
                       Login
                     </Link>
                   </>
