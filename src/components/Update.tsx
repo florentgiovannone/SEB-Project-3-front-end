@@ -1,11 +1,28 @@
-import { SyntheticEvent, useState } from "react"
+import React, { SyntheticEvent, useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Footer from "./footer"
+import { IWines } from "../interfaces/wine"
+import { IUser } from "../interfaces/user"
 
-export default function CreateWine() {
-
+export default function UpdateWine({ user }: { user: null | IUser }) {
+    const [wine, updatewines] = React.useState<IWines | null>(null)
+    const { wineId } = useParams()
     const navigate = useNavigate()
+
+    React.useEffect(() => {
+        console.log("The wine Page has mounted")
+    }, [])
+
+    React.useEffect(() => {
+        async function fetchwines() {
+            const resp = await fetch(`/api/rouge/wines/${wineId}`)
+            const winesData = await resp.json()
+            updatewines(winesData)
+        }
+        fetchwines()
+    }, [])
+
     const [formData, setFormData] = useState({
 
         winery: "",
@@ -18,40 +35,34 @@ export default function CreateWine() {
     }
     )
 
-    const [errorData, setErrorData] = useState("")
-
     function handleChange(e: any) {
         const fieldName = e.target.name
         const newFormData = structuredClone(formData)
         newFormData[fieldName as keyof typeof formData] = e.target.value
         setFormData(newFormData)
-        setErrorData("")
     }
 
     async function handleSubmit(e: SyntheticEvent) {
-        try {
-            e.preventDefault()
-            const token = localStorage.getItem('token')
-            const resp = await axios.post('/api/rouge/wines', formData, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            const newFormData = structuredClone(formData)
-            if (resp.data.message) {throw new Error(resp.data.message);
+        e.preventDefault()
+        const token = localStorage.getItem('token')
+        const newFormData = structuredClone(formData)
+
+        const resp = await axios.put(`/api/rouge/wines/${wineId}`, formData, {
+            headers: {
+                Authorization: `Bearer ${token}`
             }
-            navigate('/wines')
-        } catch (e: any) {
-            setErrorData(e.message)
-        }
+        })
+        console.log(resp.data)
+        navigate(`/wines/${wineId}`)
     }
+    console.log(formData)
 
 
     return <> <div className="section">
         <div className="container">
-            <form onSubmit={handleSubmit}>
+            <form >
                 <div className="field">
-                    <label className="label">Winery <span className="has-text-danger">*</span></label>
+                    <label className="label">Winery</label>
                     <div className="control">
                         <input
                             className="input border-is-rouge"
@@ -64,7 +75,7 @@ export default function CreateWine() {
                     </div>
                 </div>
                 <div className="field mt-4">
-                    <label className="label">Wine name <span className="has-text-danger">*</span></label>
+                    <label className="label">Wine name</label>
                     <div className="control">
                         <input
                             className="input border-is-rouge"
@@ -77,7 +88,7 @@ export default function CreateWine() {
                     </div>
                 </div>
                 <div className="field mt-4">
-                    <label className="label">Country <span className="has-text-danger">*</span></label>
+                    <label className="label">Country</label>
                     <div className="control">
                         <input
                             className="input border-is-rouge"
@@ -90,7 +101,7 @@ export default function CreateWine() {
                     </div>
                 </div>
                 <div className="field mt-4">
-                    <label className="label">Region <span className="has-text-danger">*</span></label>
+                    <label className="label">Region</label>
                     <div className="control">
                         <input
                             className="input border-is-rouge"
@@ -103,20 +114,20 @@ export default function CreateWine() {
                     </div>
                 </div>
                 <div className="field mt-4">
-                    <label className="label">Grapes <span className="has-text-danger">*</span></label>
+                    <label className="label">Grapes</label>
                     <div className="control">
                         <input
                             className="input border-is-rouge"
                             placeholder="Grapes"
                             type="text"
-                            name={'grapes'}
+                            name={'grapes'} 
                             onChange={handleChange}
                             value={formData.grapes}
                         />
                     </div>
                 </div>
                 <div className="field mt-4">
-                    <label className="label">Style <span className="has-text-danger">*</span></label>
+                    <label className="label">Style</label>
                     <div className="control ">
                         <div className="select">
                             <select
@@ -134,7 +145,7 @@ export default function CreateWine() {
                     </div>
                 </div>
                 <div className="field mt-4">
-                    <label className="label">Vintage <span className="has-text-danger">*</span></label>
+                    <label className="label">Vintage</label>
                     <div className="control">
                         <input
                             className="input border-is-rouge"
@@ -144,14 +155,12 @@ export default function CreateWine() {
                             onChange={handleChange}
                             value={formData.vintage}
                         />
-                        {errorData && <small className="has-text-danger">{errorData}</small>}
-
                     </div>
                 </div>
-                <button className="mt-4 button border-is-rouge">Submit</button>
+                <div>{wine && user &&<button onClick={handleSubmit} className="button m-6  border-is-rouge">Update</button>}</div>
             </form>
         </div>
 
     </div>
-        <Footer /></>
+            <Footer/></>
 }

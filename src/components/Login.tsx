@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
+import Footer from "./footer"
 
 export default function Login({ fetchUser }: { fetchUser: Function }) {
 
@@ -36,11 +37,11 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
 
   console.log(formData)
 
-  return <div className="section">
+  return <> <div className="section">
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="field mt-4">
-          <label className="label">Username</label>
+          <label className="label">Username <span className="has-text-danger">*</span></label>
           <div className="control">
             <input
               className="input border-is-rouge"
@@ -53,7 +54,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
           </div>
         </div>
         <div className="field mt-4">
-          <label className="label">Password</label>
+          <label className="label">Password <span className="has-text-danger">*</span></label>
           <div className="control">
             <input
               className="input border-is-rouge"
@@ -70,4 +71,6 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
       </form>
     </div>
   </div>
+    <Footer/>
+  </>
 }

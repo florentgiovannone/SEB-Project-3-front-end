@@ -5,6 +5,7 @@ import WineList from "./components/Winelist"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Create from "./components/Create"
+import UpdateWine from "./components/Update";
 import { useEffect, useState } from "react"
 import axios from "axios"
 import ShowWine from "./components/ShowWine"
@@ -38,6 +39,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/wines" element={<WineList />} />
         <Route path="/create" element={<Create  />} />
+        <Route path="/update/:wineId" element={<UpdateWine user={user} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login fetchUser={fetchUser}/>} />
         <Route path="/wines/:wineId" element={<ShowWine user={user} />}/>

@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
+import Footer from "./footer"
 
 export default function Signup() {
 
@@ -8,14 +9,18 @@ export default function Signup() {
 
   const [formData, setFormData] = useState({
     email: "",
-    username: "",
+    firstName:"",
+    lastName:"",
+    userName: "",
     password: "",
     passwordConfirmation: ""
   })
 
   const [errorData, setErrorData] = useState({
     email: "",
-    username: "",
+    firstName: "",
+    lastName: "",
+    userName: "",
     password: "",
     passwordConfirmation: ""
   })
@@ -40,25 +45,53 @@ export default function Signup() {
 
   console.log(errorData)
 
-  return <div className="section">
+  return <><div className="section">
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="field  mt-4">
-          <label className="label">Username</label>
+          <label className="label">Username <span className="has-text-danger">*</span></label>
           <div className="control">
             <input
               className="input border-is-rouge"
               placeholder="Username"
               type="text"
-              name={'username'}
+              name={'userName'}
               onChange={handleChange}
-              value={formData.username}
+              value={formData.userName}
             />
-            {errorData.username && <small className="has-text-danger">{errorData.username}</small>}
+            {errorData.userName && <small className="has-text-danger">{errorData.userName}</small>}
           </div>
         </div>
         <div className="field  mt-4">
-          <label className="label">Email</label>
+          <label className="label">Firstname <span className="has-text-danger">*</span></label>
+          <div className="control">
+            <input
+              className="input border-is-rouge"
+              placeholder="Firstname"
+              type="text"
+              name={'firstName'}
+              onChange={handleChange}
+              value={formData.firstName}
+            />
+            {errorData.firstName && <small className="has-text-danger">{errorData.firstName}</small>}
+          </div>
+        </div>
+        <div className="field  mt-4">
+          <label className="label">Lastname <span className="has-text-danger">*</span></label>
+          <div className="control">
+            <input
+              className="input border-is-rouge"
+              placeholder="Lastname"
+              type="text"
+              name={'lastName'}
+              onChange={handleChange}
+              value={formData.lastName}
+            />
+            {errorData.lastName && <small className="has-text-danger">{errorData.lastName}</small>}
+          </div>
+        </div>
+        <div className="field  mt-4">
+          <label className="label">Email <span className="has-text-danger">*</span></label>
           <div className="control">
             <input
               className="input border-is-rouge"
@@ -72,7 +105,7 @@ export default function Signup() {
           </div>
         </div>
         <div className="field  mt-4">
-          <label className="label">Password</label>
+          <label className="label">Password <span className="has-text-danger">*</span></label>
           <div className="control">
             <input
               className="input border-is-rouge"
@@ -86,7 +119,7 @@ export default function Signup() {
           </div>
         </div>
         <div className="field  mt-4">
-          <label className="label">Confirm password</label>
+          <label className="label">Confirm password <span className="has-text-danger">*</span></label>
           <div className="control">
             <input
               className="input border-is-rouge"
@@ -103,4 +136,6 @@ export default function Signup() {
       </form>
     </div>
   </div>
+  <Footer/>
+  </>
 }

@@ -1,10 +1,11 @@
 import React from "react"
+import Footer from "./footer"
 
 function ContactUs() {
   React.useEffect(() => {
     console.log("The Contact Us Page has mounted")
   }, [])
-  return (
+  return (<>
     <section className="section">
       <div className="container">
         <h1 className="title is-1">Contact Us 📬</h1>
@@ -22,6 +23,8 @@ function ContactUs() {
         </div>
       </div>
     </section>
+      <Footer/>
+  </>
   );
 };
 export default ContactUs
