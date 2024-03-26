@@ -2,7 +2,7 @@ import { SyntheticEvent, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
-export default function CreateMovie() {
+export default function CreateWine() {
 
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -13,7 +13,6 @@ export default function CreateMovie() {
         region: "",
         style: "",
         grapes: "",
-        image: "",
         vintage: ""
     }
     )
@@ -29,8 +28,8 @@ export default function CreateMovie() {
         e.preventDefault()
         const token = localStorage.getItem('token')
         const newFormData = structuredClone(formData)
-        newFormData.vintage = Number(newFormData.vintage)
-        const resp = await axios.post('/api/mywines', formData, {
+
+        const resp = await axios.post('/api/rouge/wines', formData, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -97,27 +96,34 @@ export default function CreateMovie() {
                     </div>
                 </div>
                 <div className="field mt-4">
-                    <label className="label">grapes</label>
+                    <label className="label">Grapes</label>
                     <div className="control">
                         <input
                             className="input border-is-rouge"
-                            placeholder="grapes"
+                            placeholder="Grapes"
                             type="text"
-                            name={'style'} onChange={handleChange}
+                            name={'grapes'} 
+                            onChange={handleChange}
                             value={formData.grapes}
                         />
                     </div>
                 </div>
                 <div className="field mt-4">
                     <label className="label">Style</label>
-                    <div className="control">
-                        <input
-                            className="input border-is-rouge"
-                            placeholder="Style"
-                            type="text"
-                            name={'style'} onChange={handleChange}
-                            value={formData.style}
-                        />
+                    <div className="control ">
+                        <div className="select">
+                            <select
+                                className="input border-is-rouge"
+                                name={'style'} onChange={handleChange}
+                                value={formData.style}>
+                                <option value="" disabled selected>- Choose from the below -</option>
+                                <option value="Sparkling">Sparkling</option>
+                                <option value="White">White</option>
+                                <option value="Red">Red</option>
+                                <option value="Rose">Rose</option>
+                                <option value="Sweet">Sweet</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div className="field mt-4">

@@ -13,7 +13,6 @@ import ContactUs from "./components/ContactUs"
 
 
 
-
 function App() {
   
   const [user, setUser] = useState(null)
@@ -34,14 +33,14 @@ function App() {
     <Router>
       <Navbar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home  />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/wines" element={<WineList />} />
-        <Route path="/create" element={<Create />} />
+        <Route path="/create" element={<Create  />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login fetchUser={fetchUser}/>} />
-        <Route path="/wines/:wineId" element={<ShowWine user={user}/>} />
+        <Route path="/wines/:wineId" element={<ShowWine user={user} />}/>
       </Routes>
     </Router>
   )
