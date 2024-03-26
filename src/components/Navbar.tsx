@@ -19,7 +19,7 @@ function Navbar({ user, setUser }: NavbarProps) {
     <div className="has-background-white">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand" >
-          <Link to="/" className="navbar-item">
+          <Link to="/" className="navbar-itemv ">
             <img
               alt="Logo"
               src="./src/assets/rouge_logo.png"

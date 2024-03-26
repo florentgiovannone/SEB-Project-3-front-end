@@ -45,16 +45,16 @@ function Showwine({ user }: { user: null | IUser }) {
     return <> <section className="section">
         <div className="container has-text-centered is-widescreen">
 
-                {wine && <ProductPage
-                    key={wine._id}
-                    {...wine}
-                />}
-                
+            {wine && <ProductPage
+                key={wine._id}
+                {...wine}
+            />}
+
             {wine && user && (user._id === wine.userName) && <button onClick={deleteWine} className="button m-6  border-is-rouge">Delete</button>}
-            {wine && user && (user._id === wine.userName) && <button onClick={deleteWine} className="button m-6  border-is-rouge">Update</button>}</div>
-            
+            {wine && user && (user._id === wine.userName) && <a href={`/update/${wineId}`}><button className="button m-6  border-is-rouge">Update</button></a>}</div>
+
     </section>
-      <Footer /> </>
+        <Footer /> </>
 }
 
 export default Showwine

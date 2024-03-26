@@ -20,7 +20,7 @@ function Home() {
           <h2 className="subtitle has-text-white">
             an intuitiven & powerfull ine cellar builder
           </h2>
-          <button className="button background-is-rouge m-4">Get Started</button>
+              <a href="/signup"><button className="button background-is-rouge m-4"  >Get Started</button></a>
           </div>
           </div>
         </div>

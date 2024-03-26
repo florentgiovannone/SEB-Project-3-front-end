@@ -16,7 +16,7 @@ function wineList() {
     fetchWines()
   }, [])
   console.log(wines);
-  return <><section className="container m-6">
+  return (<><section className="container m-6">
     <div className="columns is-centered ">
       <div className="columns is-multiline">
         {wines?.map((wine) => {
@@ -30,6 +30,6 @@ function wineList() {
 
   </section>
       <Footer />
-  </>
+  </>)
 }
 export default wineList
