@@ -35,13 +35,9 @@ function Footer() {
       <div className="has-text-centered is-grey">
         <div className="centered-container">
           <figure className=" p-4 image is-96x96">
-<<<<<<< HEAD
-            <img src={footerLogo}alt="Rouge Logo" />
-=======
             <img src="src/assets/rouge_logo.png" alt="Rouge Logo" />
 =========
             <img src={footerLogo}alt="Rouge Logo" />
->>>>>>>>> Temporary merge branch 2
           </figure>
           <h3>&copy; Rouge</h3>
         </div>
