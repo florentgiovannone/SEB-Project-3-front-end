@@ -18,7 +18,7 @@ export default function UpdateWine({ user }: { user: null | IUser }) {
         async function fetchwines() {
             const resp = await fetch(`/api/rouge/wines/${wineId}`)
             const winesData = await resp.json()
-            updatewines(winesData)
+            setFormData(winesData)
         }
         fetchwines()
     }, [])

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from "react-router-dom"
 import Footer from "./footer"
 
+
 export default function Signup() {
 
   const navigate = useNavigate()
@@ -98,6 +99,20 @@ export default function Signup() {
               placeholder="Email"
               type="text"
               name={'email'}
+              onChange={handleChange}
+              value={formData.email}
+            />
+            {errorData.email && <small className="has-text-danger">{errorData.email}</small>}
+          </div>
+        </div>
+        <div className="field  mt-4">
+          <label className="label">Avatar <span className="has-text-danger">*</span></label>
+          <div className="control">
+            <input
+              className="input border-is-rouge"
+              placeholder="http image link"
+              type="text"
+              name={'Image'}
               onChange={handleChange}
               value={formData.email}
             />

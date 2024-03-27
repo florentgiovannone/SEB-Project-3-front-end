@@ -1,7 +1,8 @@
 import React from "react";
+import Footer from "./footer";
 
 const ContactUs: React.FC = () => {
-  return (
+  return (<>
     <div className="is-flex is-flex-direction-column py-12 px-6 max-w-4xl mx-auto">
       <div className="is-flex is-flex-direction-column space-y-6">
         <div className="is-flex is-flex-direction-column space-y-6">
@@ -64,7 +65,9 @@ const ContactUs: React.FC = () => {
           </div>
         </div>
       </div>
+
     </div>
+          <Footer/> </>
   );
 };
 

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-
 import Home from './components/Home'
 import Navbar from "./components/Navbar"
 import WineList from "./components/Winelist"
+import UserList from "./components/userList";
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Create from "./components/Create"
@@ -40,6 +41,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/wines" element={<WineList />} />
+        <Route path="/user" element={<UserList />} />
         <Route path="/create" element={<Create  />} />
         <Route path="/update/:wineId" element={<UpdateWine user={user} />} />
         <Route path="/signup" element={<Signup />} />

@@ -5,6 +5,7 @@ export interface IUser {
     firstName: string,
     lastName: string,
     email: string,
+  image: string,
   myCave: [{
     _id: number,
     winery: string,

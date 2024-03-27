@@ -35,7 +35,9 @@ export default function Dashboard({ user }: { user: null | IUser }) {
             
         }
         fetchWines()
-    }, [])
+    }, [currentUser])
+    console.log("wines", wines);
+    
     return <>
 
         <h1 className="title has-text-centered is-rouge mt-6">My Dashboard</h1>
