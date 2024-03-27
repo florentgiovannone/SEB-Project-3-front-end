@@ -19,7 +19,7 @@ function Navbar({ user, setUser }: NavbarProps) {
     <div className="has-background-white">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand" >
-          <Link to="/" className="navbar-itemv ">
+          <Link to="/" >
             <img
               alt="Logo"
               src="./src/assets/rouge_logo.png"
@@ -54,10 +54,14 @@ function Navbar({ user, setUser }: NavbarProps) {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                {user ? (
+                {user ? (<>
                   <button onClick={logout} className="button is-light is-size-5 has-text-weight-semibold">
                     Logout
                   </button>
+                              {user && <Link to="/dashboard" className="navbar-item is-size-5 has-text-weight-semibold">
+                  Dashboard
+                  </Link>}
+                  </>
                 ) : (
                   <>
                     <Link to="/signup" className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper">

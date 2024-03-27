@@ -34,7 +34,6 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
       setErrorMessage(e.response.data.message)
     }
   }
-
   console.log(formData)
 
   return <> <div className="section">

@@ -1,7 +1,20 @@
+
 export interface IUser {
     _id: string,
     userName: string,
-    firsName: string,
+    firstName: string,
     lastName: string,
-    email: string
+    email: string,
+  myCave: [{
+    _id: number,
+    winery: string,
+    wineName: string,
+    region: string,
+    country: string,
+    style: string,
+    vintage: number,
+    grapes: string,
+    image: string
+  }]
+
   }
