@@ -14,7 +14,8 @@ export default function CreateWine() {
         region: "",
         style: "",
         grapes: "",
-        vintage: ""
+        vintage: "",
+        image:""
     }
     )
 
@@ -146,6 +147,19 @@ export default function CreateWine() {
                         />
                         {errorData && <small className="has-text-danger">{errorData}</small>}
 
+                    </div>
+                </div>
+                <div className="field  mt-4">
+                    <label className="label">image <span className="has-text-danger">*</span></label>
+                    <div className="control">
+                        <input
+                            className="input border-is-rouge"
+                            placeholder="http image link"
+                            type="text"
+                            name={'Image'}
+                            onChange={handleChange}
+                            value={formData.image}
+                        />
                     </div>
                 </div>
                 <button className="mt-4 button border-is-rouge">Submit</button>

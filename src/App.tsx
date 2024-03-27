@@ -14,6 +14,7 @@ import ShowUser from "./components/ShowUser";
 import AboutUs from "./components/AboutUs"
 import ContactUs from "./components/ContactUs"
 import Dashboard from "./components/dashboard";
+import UpdateAccount from "./components/UpdateAccount";
 
 
 
@@ -45,6 +46,7 @@ function App() {
         <Route path="/user" element={<UserList />} />
         <Route path="/create" element={<Create  />} />
         <Route path="/update/:wineId" element={<UpdateWine user={user} />} />
+        <Route path="/updateaccount/:userId" element={<UpdateAccount user={user} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login fetchUser={fetchUser}/>} />
         <Route path="/dashboard" element={<Dashboard user={user}/>} />

@@ -31,10 +31,10 @@ function wineList() {
   
   return (<><section className="container m-8">
     <div className="columns is-centered m-6">
-      <div className="container">
+      <div className="container m-3">
 
         <input
-          className="input background-is-rouge is-rounded mb-3"
+          className="input background-is-rouge is-rounded m-3"
           placeholder="Search character..."
           onChange={handleChange}
           value={search}

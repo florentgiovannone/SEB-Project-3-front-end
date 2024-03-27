@@ -9,11 +9,15 @@ import Footer from "./footer"
 
 function Showwine(this: any, { user }: { user: null | IUser }) {
 
-
+    const [isNotificationOpen, setIsNotificationOpen] = useState(false);
     const [wine, updatewines] = React.useState<IWines | null>(null)
     const [currentUser, updateCurrentUser] = useState<IUser | null>(null);
     const { wineId } = useParams()
     const navigate = useNavigate()
+
+ 
+
+
 
     React.useEffect(() => {
         console.log("The wine Page has mounted")
@@ -29,6 +33,17 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
     }, [])
 
     const [text, setText] = useState("")
+    // function handleCloseNotification() {
+    //     setIsNotificationOpen(false);
+    //     if (!isNotificationOpen) {
+    //         setText("")
+    //         window.location.reload();
+    //     }
+    // }
+
+    function handleOpenNotification() {
+        setIsNotificationOpen(true);
+    }
 
     async function fetchUser() {
         const token = localStorage.getItem('token')
@@ -44,8 +59,6 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
 
     const currentUserID = currentUser?._id
     const currentUserCave = currentUser?.myCave
-
-
 
     async function deleteWine(e: SyntheticEvent) {
         try {
@@ -81,6 +94,7 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
 
             setText("The wine was added");
             e.preventDefault();
+            window.location.reload();
 
             const resp = await axios.post(`/api/rouge/user/cave/${currentUserID}`, wine, {
                 headers: {
@@ -116,11 +130,11 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
             {wine && user && (user.userName === wine.user.userName) && <button onClick={deleteWine} className="button m-6  border-is-rouge">Delete</button>}
             {wine && user && (user.userName === wine.user.userName) && <a href={`/update/${wineId}`}><button className="button m-6  border-is-rouge">Update</button></a>}
             {user && <button className="button m-6  border-is-rouge" onClick={addToCave}>Add to your Cave</button>}
-            <div>{text &&
+            <div>{text && (
                 <div className="notification is-grey background-is-rouge" >
-                    <button className="delete"></button>
+                    <button className="delete" ></button>
                     {text}
-                </div>}
+                </div>)}
             </div>
         </div>
 

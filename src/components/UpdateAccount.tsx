@@ -5,8 +5,9 @@ import Footer from "./footer"
 import { IWines } from "../interfaces/wine"
 import { IUser } from "../interfaces/user"
 
-export default function UpdateWine({ user }: { user: null | IUser }) {
-    const { wineId } = useParams()
+export default function updateAccount({ user }: { user: null | IUser }) {
+
+    const { userId } = useParams()
     const navigate = useNavigate()
 
     React.useEffect(() => {
@@ -15,7 +16,7 @@ export default function UpdateWine({ user }: { user: null | IUser }) {
 
     React.useEffect(() => {
         async function fetchwines() {
-            const resp = await fetch(`/api/rouge/wines/${wineId}`)
+            const resp = await fetch(`/api/rouge/user/${userId}`)
             const winesData = await resp.json()
             setFormData(winesData)
         }
@@ -23,15 +24,13 @@ export default function UpdateWine({ user }: { user: null | IUser }) {
     }, [])
 
     const [formData, setFormData] = useState({
-
-        winery: "",
-        wineName: "",
-        country: "",
-        region: "",
-        style: "",
-        grapes: "",
-        vintage: "",
-        image:"", 
+        email: "",
+        firstName: "",
+        lastName: "",
+        userName: "",
+        image: "",
+        password: "",
+        passwordConfirmation: ""
     }
     )
 
@@ -47,13 +46,14 @@ export default function UpdateWine({ user }: { user: null | IUser }) {
         const token = localStorage.getItem('token')
         const newFormData = structuredClone(formData)
 
-        const resp = await axios.put(`/api/rouge/wines/${wineId}`, formData, {
+        const resp = await axios.put(`/api/rouge/user/${userId}`, formData, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         })
         console.log(resp.data)
-        navigate(`/wines/${wineId}`)
+        navigate(`/dashboard`)
+        window.location.reload();
     }
     console.log(formData)
 
@@ -61,115 +61,97 @@ export default function UpdateWine({ user }: { user: null | IUser }) {
     return <> <div className="section">
         <div className="container">
             <form >
-                <div className="field">
-                    <label className="label">Winery</label>
+                <div className="field  mt-4">
+                    <label className="label">Username <span className="has-text-danger">*</span></label>
                     <div className="control">
                         <input
                             className="input border-is-rouge"
-                            placeholder="Winery"
+                            placeholder="Username"
                             type="text"
-                            name={'winery'}
+                            name={'userName'}
                             onChange={handleChange}
-                            value={formData.winery}
-                        />
-                    </div>
-                </div>
-                <div className="field mt-4">
-                    <label className="label">Wine name</label>
-                    <div className="control">
-                        <input
-                            className="input border-is-rouge"
-                            placeholder="Wine name"
-                            type="text"
-                            name={'wineName'}
-                            onChange={handleChange}
-                            value={formData.wineName}
-                        />
-                    </div>
-                </div>
-                <div className="field mt-4">
-                    <label className="label">Country</label>
-                    <div className="control">
-                        <input
-                            className="input border-is-rouge"
-                            placeholder="Country"
-                            type="text"
-                            name={'country'}
-                            onChange={handleChange}
-                            value={formData.country}
-                        />
-                    </div>
-                </div>
-                <div className="field mt-4">
-                    <label className="label">Region</label>
-                    <div className="control">
-                        <input
-                            className="input border-is-rouge"
-                            placeholder="Region"
-                            type="text"
-                            name={'region'}
-                            onChange={handleChange}
-                            value={formData.region}
-                        />
-                    </div>
-                </div>
-                <div className="field mt-4">
-                    <label className="label">Grapes</label>
-                    <div className="control">
-                        <input
-                            className="input border-is-rouge"
-                            placeholder="Grapes"
-                            type="text"
-                            name={'grapes'} 
-                            onChange={handleChange}
-                            value={formData.grapes}
-                        />
-                    </div>
-                </div>
-                <div className="field mt-4">
-                    <label className="label">Style</label>
-                    <div className="control ">
-                        <div className="select">
-                            <select
-                                className="input border-is-rouge"
-                                name={'style'} onChange={handleChange}
-                                value={formData.style}>
-                                <option value="" disabled selected>- Choose from the below -</option>
-                                <option value="Sparkling">Sparkling</option>
-                                <option value="White">White</option>
-                                <option value="Red">Red</option>
-                                <option value="Rose">Rose</option>
-                                <option value="Sweet">Sweet</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div className="field mt-4">
-                    <label className="label">Vintage</label>
-                    <div className="control">
-                        <input
-                            className="input border-is-rouge"
-                            placeholder="Vintage"
-                            type="text"
-                            name={'vintage'}
-                            onChange={handleChange}
-                            value={formData.vintage}
+                            value={formData.userName}
                         />
                     </div>
                 </div>
                 <div className="field  mt-4">
-                    <label className="label">Image <span className="has-text-danger">*</span></label>
+                    <label className="label">Firstname <span className="has-text-danger">*</span></label>
+                    <div className="control">
+                        <input
+                            className="input border-is-rouge"
+                            placeholder="Firstname"
+                            type="text"
+                            name={'firstName'}
+                            onChange={handleChange}
+                            value={formData.firstName}
+                        />
+                    </div>
+                </div>
+                <div className="field  mt-4">
+                    <label className="label">Lastname <span className="has-text-danger">*</span></label>
+                    <div className="control">
+                        <input
+                            className="input border-is-rouge"
+                            placeholder="Lastname"
+                            type="text"
+                            name={'lastName'}
+                            onChange={handleChange}
+                            value={formData.lastName}
+                        />
+                    </div>
+                </div>
+                <div className="field  mt-4">
+                    <label className="label">Email <span className="has-text-danger">*</span></label>
+                    <div className="control">
+                        <input
+                            className="input border-is-rouge"
+                            placeholder="Email"
+                            type="text"
+                            name={'email'}
+                            onChange={handleChange}
+                            value={formData.email}
+                        />
+                    </div>
+                </div>
+                <div className="field  mt-4">
+                    <label className="label">Avatar <span className="has-text-danger">*</span></label>
                     <div className="control">
                         <input
                             className="input border-is-rouge"
                             placeholder="http image link"
                             type="text"
-                            name={'Image'}
+                            name={'image'}
                             onChange={handleChange}
                             value={formData.image}
                         />
                     </div>
                 </div>
+                {/* <div className="field  mt-4">
+                    <label className="label">Password <span className="has-text-danger">*</span></label>
+                    <div className="control">
+                        <input
+                            className="input border-is-rouge"
+                            placeholder="Password"
+                            type="password"
+                            name={'password'}
+                            onChange={handleChange}
+                            value={formData.password}
+                        />
+                    </div>
+                </div>
+                <div className="field  mt-4">
+                    <label className="label">Confirm password <span className="has-text-danger">*</span></label>
+                    <div className="control">
+                        <input
+                            className="input border-is-rouge"
+                            placeholder="Confirm password"
+                            type="password"
+                            name={'passwordConfirmation'}
+                            onChange={handleChange}
+                            value={formData.passwordConfirmation}
+                        />
+                    </div>
+                </div> */}
                 <div>{user &&<button onClick={handleSubmit} className="button m-6  border-is-rouge">Update</button>}</div>
             </form>
         </div>

@@ -13,6 +13,7 @@ export default function Signup() {
     firstName:"",
     lastName:"",
     userName: "",
+    image: "",
     password: "",
     passwordConfirmation: ""
   })
@@ -22,6 +23,7 @@ export default function Signup() {
     firstName: "",
     lastName: "",
     userName: "",
+    image: "",
     password: "",
     passwordConfirmation: ""
   })
@@ -112,9 +114,9 @@ export default function Signup() {
               className="input border-is-rouge"
               placeholder="http image link"
               type="text"
-              name={'Image'}
+              name={'image'}
               onChange={handleChange}
-              value={formData.email}
+              value={formData.image}
             />
             {errorData.email && <small className="has-text-danger">{errorData.email}</small>}
           </div>
