@@ -5,17 +5,20 @@ import ProductPage from "./ProductPage"
 import axios from "axios"
 import { IUser } from "../interfaces/user"
 import Footer from "./footer"
-import WineCardDashboard from "./Winecard dashboard"
+import WineCardDashboard from "./WinecardDashboard"
 
-
+type Wines = null | Array<IWines>
 function ShowUser({ user }: { user: null | IUser }) {
-    const [neededUser, setUser] = React.useState<IUser | null>(null)
-    const { userId} = useParams()
+
+    const { userId } = useParams()
 
     React.useEffect(() => {
         console.log("The dash Page has mounted")
     }, [])
 
+
+
+    const [neededUser, setUser] = React.useState<IUser | null>(null)
     React.useEffect(() => {
         async function fetchwines() {
             const resp = await fetch(`/api/rouge/user/${userId}`)
@@ -25,10 +28,19 @@ function ShowUser({ user }: { user: null | IUser }) {
         fetchwines()
     }, [])
 
-    
-const wines = neededUser?.myCave 
-    console.log(neededUser?.myCave);
-    
+    const [wines, setWines] = React.useState<Wines>(null)
+    React.useEffect(() => {
+        async function fetchWines() {
+            const token = localStorage.getItem('token')
+            const resp = await fetch(`/api/rouge/user/cave/${neededUser?._id}`)
+            const data = await resp.json()
+            setWines(data.myCave)
+
+        }
+        fetchWines()
+    }, [neededUser?._id])
+    console.log(wines);
+
     return <> <section className="section">
         <div className="container has-text-centered is-widescreen">
 
@@ -43,7 +55,7 @@ const wines = neededUser?.myCave
                 <h5 className="title has-text-black has-text-centered mb-6">{`${neededUser?.userName}'s Cave`}</h5>
                 <div className="columns has-text-centered is-centered m-6">
                     <div className="columns is-centered is-multiline">
-                        {wines?.map((wine) => {
+                        {wines?.map((wine: JSX.IntrinsicAttributes & IWines) => {
                             return <WineCardDashboard
                                 key={wine.image}
                                 {...wine}
@@ -53,7 +65,7 @@ const wines = neededUser?.myCave
                 </div>
 
             </div>
-</div>
+        </div>
 
     </section>
         <Footer /> </>

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 import { IWines } from "../interfaces/wine"
-import location from "../assets/location.png"
-import grapesStyle from "../assets/grapes.png"
-import year from "../assets/year.png"
-import Footer from "./footer"
+import location from "../assets/images/location.png"
+import grapesStyle from "../assets/images/grapes.png"
+import year from "../assets/images/year.png"
+
 
 function ProductPage({ _id, winery, wineName, region, country, style, grapes, vintage, image }: IWines) {
   return <> <section>

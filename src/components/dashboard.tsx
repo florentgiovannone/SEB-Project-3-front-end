@@ -3,7 +3,7 @@ import { IWines } from "../interfaces/wine";
 import Footer from "./footer";
 import React, { SyntheticEvent, useEffect, useState } from "react"
 import axios from "axios";
-import WineCardDashboard from "./Winecard dashboard";
+import WineCardDashboard from "./WinecardDashboard";
 
 type Wines = null | Array<IWines>
 export default function Dashboard({ user }: { user: null | IUser }) {
@@ -43,32 +43,32 @@ export default function Dashboard({ user }: { user: null | IUser }) {
         <section className="section">
             <div className=" container has-text-centered is-widescreen">
                 <div className="account column is-rounded background-is-grey is-centered m-6">
-                <h5 className="title has-text-black has-text-centered mb-6">My Account</h5>
-                <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Firstname:`}</span> {user?.firstName}</p>
-                <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Lastname:`}</span> {user?.lastName}</p>
-                <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Username:`}</span> {user?.userName}</p>
-                <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Email:`}</span> {user?.email}</p>
-            </div>
+                    <h5 className="title has-text-black has-text-centered mb-6">My Account</h5>
+                    <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Firstname:`}</span> {user?.firstName}</p>
+                    <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Lastname:`}</span> {user?.lastName}</p>
+                    <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Username:`}</span> {user?.userName}</p>
+                    <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Email:`}</span> {user?.email}</p>
+                </div>
                 <div className="account column is-rounded background-is-grey  m-6">
-                <h5 className="title has-text-black has-text-centered mb-6">My Cave</h5>
+                    <h5 className="title has-text-black has-text-centered mb-6">My Cave</h5>
                     <div className="columns has-text-centered is-centered is-centered m-6">
                         <div className="columns has-text-centered is-centered is-multiline">
-                        {wines?.map((wine) => {
-                            return <WineCardDashboard
-                                key={wine._id}
-                                {...wine}
-                            />
-                        })}
+                            {wines?.map((wine) => {
+                                return <WineCardDashboard
+                                    key={wine._id}
+                                    {...wine}
+                                />
+                            })}
+                        </div>
                     </div>
+
                 </div>
-                    
-            </div>
                 <div className="columns has-text-centered is-centered is-multiline">
-                <a href="/user"><button className="button  border-is-rouge">Search users</button></a>
+                    <a href="/user"><button className="button  border-is-rouge">Search users</button></a>
                 </div>
-        </div>
+            </div>
         </section>
-        
+
         <Footer />
     </>
 }

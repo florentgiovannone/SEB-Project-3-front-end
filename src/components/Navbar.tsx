@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { IUser } from "../interfaces/user";
-import Logo from "../assets/rouge_logo.png"
+import Logo from "../assets/images/rouge_logo.png"
 
 interface NavbarProps {
   user: null | IUser, 

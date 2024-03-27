@@ -11,5 +11,4 @@ export interface IWines {
   vintage: number,
   image: string,
   user: IUser
-
 }
