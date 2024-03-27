@@ -1,19 +1,19 @@
 import React from "react"
-import WineCard from "./Winecard"
-import { IWines } from "../interfaces/wine"
+import UserCard from "./userCard"
+import { IUser } from "../interfaces/user"
 import Footer from "./footer"
 
 
-type Wines = null | Array<IWines>
-function wineList() {
-  const [wines, setWines] = React.useState<Wines>(null)
+type User = null | Array<IUser>
+function UserList() {
+  const [user, setUser] = React.useState<User>(null)
   React.useEffect(() => {
-    async function fetchWines() {
-      const resp = await fetch('/api/rouge/wines')
+    async function fetchuser() {
+      const resp = await fetch('/api/rouge/users')
       const data = await resp.json()
-      setWines(data)
+      setUser(data)
     }
-    fetchWines()
+    fetchuser()
   }, [])
 
   const [search, setSearch] = React.useState("");
@@ -23,12 +23,10 @@ function wineList() {
   }
 
   function filterWines() {
-    return wines?.filter((wine: { wineName: string, winery: string }) => {
-      return wine.wineName.toLowerCase().includes(search.toLowerCase())
+    return user?.filter((user: { firstName: string}) => {
+      return user.firstName.toLowerCase().includes(search.toLowerCase())
     });
   }
-  const filteredLength: any = filterWines()?.length
-  
   return (<><section className="container m-8">
     <div className="columns is-centered m-6">
       <div className="container">
@@ -39,17 +37,11 @@ function wineList() {
           onChange={handleChange}
           value={search}
         />
-        {filteredLength === 0 && <div className="account  has-text-centered background-is-grey mb-5">
-          <p className="text is-black ">Cannot find your wine ?</p>
-          <a href="/create"><button className="button  mb-3">Create new Wine</button></a>
-
-        </div>}
-
         <div className="columns is-multiline is-centered mb-6">
-          {filterWines()?.map((wine) => {
-            return <WineCard
-              key={wine._id}
-              {...wine}
+          {filterWines()?.map((user) => {
+            return <UserCard
+              key={user._id}
+              {...user}
             />
           })}
         </div>
@@ -70,4 +62,4 @@ function wineList() {
     <Footer />
   </>)
 }
-export default wineList
+export default UserList
