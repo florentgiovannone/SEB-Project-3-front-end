@@ -12,9 +12,10 @@ function UserCard({ firstName, lastName, userName, _id, email, image }: IUser) {
       </div>
       <div className="card-content background-is-grey m">
         <Link to={`/user/${_id}`}>
-          <div className="card-image">
-            <figure className="image has-ratio is-4by5">
+          <div className="card-image ">
+            <figure className="image is-4by5">
               <img
+            
                 src={`${image}`}
                 alt="Placeholder image"
               />

@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { IUser } from "../interfaces/user";
+import Logo from "../assets/rouge_logo.png"
 
 interface NavbarProps {
   user: null | IUser, 
@@ -22,10 +23,10 @@ function Navbar({ user, setUser }: NavbarProps) {
           <Link to="/" >
             <img
               alt="Logo"
-              src="./src/assets/rouge_logo.png"
+              src={Logo}
               style={{
-                height: '120px',
-                width: '120px',
+                height: '80px',
+                width: '80px',
                 objectFit: 'cover',
               }}
             />

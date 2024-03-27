@@ -8,13 +8,13 @@ const ContactUs: React.FC = () => {
         <div className="is-flex is-flex-direction-column space-y-6">
           <h2 className="is-size-1 has-text-weight-bold">Contact Us</h2>
           <p className="is-size-5">Got a question or feedback? We'd love to hear from you!</p>
-          <p className="is-size-5">
+          <p className="is-size-5 m-4">
             Email us at <a className="has-text-link" href="mailto:info@rougewine.com">info@rougewine.com</a>
             or call us at <a className="has-text-link" href="tel:+1234-WINE-567">+1 234-WINE-567</a>.
             If you're nearby, come and visit us for a personalized wine tasting experience.
           </p>
           <div className="columns">
-            <div className="column">
+            <div className="column is-one-quarter">
               <div className="content">
                 <p>
                   <strong>Send an Email</strong>
@@ -33,7 +33,7 @@ const ContactUs: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="column is-flex is-flex-grow-1 is-flex-direction-column gap-4">
+            <div className="column is-three-fifths is-flex is-flex-grow-1 is-flex-direction-column gap-4">
               <div className="box" style={{ backgroundColor: '#2a2a2a' }}>
                 <form className="is-flex is-flex-grow-1 is-flex-direction-column gap-4">
                   <div className="field">

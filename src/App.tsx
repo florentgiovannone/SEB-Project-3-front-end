@@ -24,7 +24,7 @@ function App() {
 
   async function fetchUser() {
     const token = localStorage.getItem('token')
-    const resp = await axios.get(`/api/rouge/user/`, {
+    const resp = await axios.get(`/api/rouge/user`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     setUser(resp.data)
@@ -38,7 +38,7 @@ function App() {
     <Router>
       <Navbar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home  />} />
+        <Route path="/" element={<Home user={user} setUser={setUser} />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/wines" element={<WineList />} />

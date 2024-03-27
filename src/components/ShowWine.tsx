@@ -26,6 +26,8 @@ function Showwine({ user }: { user: null | IUser }) {
         fetchwines()
     }, [])
 
+    const [text, setText] = useState("")
+
     async function fetchUser() {
         const token = localStorage.getItem('token')
         const resp = await axios.get(`/api/rouge/user`, {
@@ -38,6 +40,8 @@ function Showwine({ user }: { user: null | IUser }) {
         if (token) fetchUser()
     }, [])
     
+
+
 
     async function deleteWine(e: SyntheticEvent) {
         try {
@@ -55,7 +59,9 @@ function Showwine({ user }: { user: null | IUser }) {
     console.log(currentUser)
 
     async function addToCave(e: SyntheticEvent){
-        try {
+        try {setText(<div className="notification is-grey background-is-rouge" >
+                The wine was added
+            </div>)
             e.preventDefault()
             const token = localStorage.getItem('token')
             const resp = await axios.post(`/api/rouge/user/cave/${currentUser}`, wine, {
@@ -77,7 +83,9 @@ function Showwine({ user }: { user: null | IUser }) {
 
             {wine && user && (user.userName === wine.user.userName) && <button onClick={deleteWine} className="button m-6  border-is-rouge">Delete</button>}
             {wine && user && (user.userName === wine.user.userName) && <a href={`/update/${wineId}`}><button className="button m-6  border-is-rouge">Update</button></a>}
-            {user && <button className="button m-6  border-is-rouge" onClick={addToCave}>Add to your Cave</button>}</div>
+            {user && <button className="button m-6  border-is-rouge" onClick={addToCave}>Add to your Cave</button>}
+            <div>{text}</div></div>
+
 
     </section>
         <Footer /> </>

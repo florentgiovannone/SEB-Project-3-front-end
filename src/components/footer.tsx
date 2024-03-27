@@ -12,7 +12,7 @@ function Footer() {
     style={{ display: 'flex' }}
     options={{
       height: 20,
-      amplitude: 50,
+      amplitude: 30,
       speed: 0.3,
       points: 3
     }} />
@@ -35,7 +35,7 @@ function Footer() {
       <div className="has-text-centered is-grey">
         <div className="centered-container">
           <figure className=" p-4 image is-96x96">
-            <img src={footerLogo}alt="Rouge Logo" />
+            <img src={footerLogo} alt="Rouge Logo" />
           </figure>
           <h3>&copy; Rouge</h3>
         </div>

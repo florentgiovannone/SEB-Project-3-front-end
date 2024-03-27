@@ -39,13 +39,13 @@ const wines = neededUser?.myCave
                 <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Username:`}</span> {neededUser?.userName}</p>
                 <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Email:`}</span> {neededUser?.email}</p>
             </div>
-            <div className="account column is-rounded background-is-grey  m-6">
+            <div className="account column is-rounded has-text-centered is-centered background-is-grey  m-6">
                 <h5 className="title has-text-black has-text-centered mb-6">{`${neededUser?.userName}'s Cave`}</h5>
-                <div className="columns has-text-centered m-6">
+                <div className="columns has-text-centered is-centered m-6">
                     <div className="columns is-centered is-multiline">
                         {wines?.map((wine) => {
                             return <WineCardDashboard
-                                key={wine._id}
+                                key={wine.image}
                                 {...wine}
                             />
                         })}
