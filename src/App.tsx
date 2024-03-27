@@ -10,6 +10,7 @@ import UpdateWine from "./components/Update";
 import { useEffect, useState } from "react"
 import axios from "axios"
 import ShowWine from "./components/ShowWine"
+import ShowUser from "./components/ShowUser";
 import AboutUs from "./components/AboutUs"
 import ContactUs from "./components/ContactUs"
 import Dashboard from "./components/dashboard";
@@ -48,6 +49,7 @@ function App() {
         <Route path="/login" element={<Login fetchUser={fetchUser}/>} />
         <Route path="/dashboard" element={<Dashboard user={user}/>} />
         <Route path="/wines/:wineId" element={<ShowWine user={user} />}/>
+        <Route path="/user/:userId" element={<ShowUser user={user} />}/>
       </Routes>
     </Router>
   )
