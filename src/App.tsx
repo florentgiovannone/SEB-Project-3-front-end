@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
 import Home from './components/Home'
 import Navbar from "./components/Navbar"
 import WineList from "./components/Winelist"
@@ -11,6 +11,7 @@ import axios from "axios"
 import ShowWine from "./components/ShowWine"
 import AboutUs from "./components/AboutUs"
 import ContactUs from "./components/ContactUs"
+import Dashboard from "./components/dashboard";
 
 
 
@@ -18,9 +19,10 @@ function App() {
   
   const [user, setUser] = useState(null)
 
+
   async function fetchUser() {
     const token = localStorage.getItem('token')
-    const resp = await axios.get("/api/rouge/user", {
+    const resp = await axios.get(`/api/rouge/user/`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     setUser(resp.data)
@@ -42,6 +44,7 @@ function App() {
         <Route path="/update/:wineId" element={<UpdateWine user={user} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login fetchUser={fetchUser}/>} />
+        <Route path="/dashboard" element={<Dashboard user={user}/>} />
         <Route path="/wines/:wineId" element={<ShowWine user={user} />}/>
       </Routes>
     </Router>

@@ -1,8 +1,7 @@
-import React, { SyntheticEvent } from "react"
+import React, { SyntheticEvent, useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { IWines } from "../interfaces/wine"
 import ProductPage from "./ProductPage"
-import WineCard from "./Winecard"
 import axios from "axios"
 import { IUser } from "../interfaces/user"
 import Footer from "./footer"
@@ -10,7 +9,8 @@ import Footer from "./footer"
 
 function Showwine({ user }: { user: null | IUser }) {
     const [wine, updatewines] = React.useState<IWines | null>(null)
-    const { wineId } = useParams()
+    const [currentUser, updateCurrentUser] = useState(null)
+    const { wineId} = useParams()
     const navigate = useNavigate()
 
     React.useEffect(() => {
@@ -26,6 +26,19 @@ function Showwine({ user }: { user: null | IUser }) {
         fetchwines()
     }, [])
 
+    async function fetchUser() {
+        const token = localStorage.getItem('token')
+        const resp = await axios.get(`/api/rouge/user`, {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+        updateCurrentUser(resp.data._id)     
+    }
+    React.useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) fetchUser()
+    }, [])
+    
+
     async function deleteWine(e: SyntheticEvent) {
         try {
             const token = localStorage.getItem('token')
@@ -38,10 +51,22 @@ function Showwine({ user }: { user: null | IUser }) {
         }
 
     }
-    console.log(wine);
-    console.log(user);
+    console.log(wine)
+    console.log(currentUser)
 
-
+    async function addToCave(e: SyntheticEvent){
+        try {
+            e.preventDefault()
+            const token = localStorage.getItem('token')
+            const resp = await axios.post(`/api/rouge/user/cave/${currentUser}`, wine, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+        } catch (e) {
+        }
+    }
+    
     return <> <section className="section">
         <div className="container has-text-centered is-widescreen">
 
@@ -50,8 +75,9 @@ function Showwine({ user }: { user: null | IUser }) {
                 {...wine}
             />}
 
-            {wine && user && (user._id === wine.userName) && <button onClick={deleteWine} className="button m-6  border-is-rouge">Delete</button>}
-            {wine && user && (user._id === wine.userName) && <a href={`/update/${wineId}`}><button className="button m-6  border-is-rouge">Update</button></a>}</div>
+            {wine && user && (user.userName === wine.user.userName) && <button onClick={deleteWine} className="button m-6  border-is-rouge">Delete</button>}
+            {wine && user && (user.userName === wine.user.userName) && <a href={`/update/${wineId}`}><button className="button m-6  border-is-rouge">Update</button></a>}
+            {user && <button className="button m-6  border-is-rouge" onClick={addToCave}>Add to your Cave</button>}</div>
 
     </section>
         <Footer /> </>

@@ -170,7 +170,20 @@ $box-padding: 1rem;
     margin-top: 1.5rem;
   }
 
+.account { 
+  border-radius: 50px
+}
 
+ $spacing-shortcuts: (
+   "margin": "mg"
+ );
+ $spacing-horizontal: "h";
+ $spacing-vertical: null;
+ $spacing-values: (
+   "small": 10px,
+   "medium": 30px,
+   "large": 60px
+ );
 // ! example on how to customize, skip to section "Add your own Bulma styles":
 // https://bulma.io/documentation/customize/with-sass-cli/
 
