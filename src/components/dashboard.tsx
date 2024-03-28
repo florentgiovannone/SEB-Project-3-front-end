@@ -93,16 +93,9 @@ export default function Dashboard({ user }: { user: null | IUser }) {
                     <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Lastname: `}</span> {user?.lastName}</p>
                     <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Username: `}</span> {user?.userName}</p>
                     <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Email: `}</span> {user?.email}</p>
-                    {lastPasswordChange && (
-                        <p className="is-rouge has-text-weight-semibold has-text-centered mb-3">
-                            <span className="title has-text-black is-rouge is-4">
-                                Last password changed:
-                            </span> 
-                            {lastPasswordChange.toLocaleDateString()}
-                        </p>
-                    )}
+                    <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Last password changed: `}</span> {lastPasswordChange ? lastPasswordChange.toLocaleDateString() : 'Not available'}</p>
                     
-                    <button className="button is-outlined is-primary mt-4" onClick={handleOpenModal}>
+                    <button className="button is-outlined background-is-rouge m-4 is-primary mt-4" onClick={handleOpenModal}>
                         Change Password
                     </button>
     
@@ -120,7 +113,7 @@ export default function Dashboard({ user }: { user: null | IUser }) {
                                     <input className="input mt-4" type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm New Password" />
                                 </section>
                                 <footer className="modal-card-foot">
-                                    <button className="button is-success" onClick={handleChangePassword}>Update Password</button>
+                                    <button className="button is-success background-is-rouge m-4" onClick={handleChangePassword}>Update Password</button>
                                 </footer>
                             </div>
                         </div>
