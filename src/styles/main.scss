@@ -42,15 +42,22 @@ section.section {
 }
 
 .hero-filter {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    width: 100%;
-    height: 80%;
-    background-image: url('../assets/images/Hero.png');
-    filter: brightness(0.4);
-    z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/Hero.png');
+  filter: brightness(0.4);
+  z-index: -1;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-filter {
+    height: 100%;
+    /* Adjusted height to cover the entire viewport */
+  }
 }
 
 .is-rouge {
