@@ -15,6 +15,7 @@ export default function Dashboard({ user }: { user: null | IUser }) {
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [lastPasswordChange, setLastPasswordChange] = useState<Date | null>(null);
+    const [errorMessage, setErrorMessage] = useState("")
 
     async function fetchUser() {
         const token = localStorage.getItem('token')
@@ -51,13 +52,13 @@ export default function Dashboard({ user }: { user: null | IUser }) {
                     })
                     setLastPasswordChange(new Date(response.data.lastPasswordChange));
                     fetchUser()
-                    alert('Password has been changed');
+                    setErrorMessage('Password has been changed');
                     setIsModalOpen(false);
                 } else {
                     console.error("User ID is null");
                 }
             } else {
-                alert('Old password is incorrect');
+                setErrorMessage('Old password is incorrect');
             }
         } catch (error) {
             console.error("Error updating password: ", error);
@@ -113,6 +114,7 @@ export default function Dashboard({ user }: { user: null | IUser }) {
                                     <input className="input" type="password" value={oldPassword} onChange={e => setOldPassword(e.target.value)} placeholder="Old Password" />
                                     <input className="input mt-4" type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder="New Password" />
                                     <input className="input mt-4" type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm New Password" />
+                                        {errorMessage && <small className="has-text-danger">{errorMessage}</small>}
                                 </section>
                                 <footer className="modal-card-foot">
                                     <button className="button is-success background-is-rouge m-4" onClick={handleChangePassword}>Update Password</button>
