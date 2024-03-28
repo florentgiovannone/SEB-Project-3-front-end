@@ -5,6 +5,7 @@ import React, { SyntheticEvent, useEffect, useState } from "react"
 import axios from "axios";
 import WineCardDashboard from "./WinecardDashboard";
 import { useNavigate, useParams } from "react-router-dom"
+import UserCave from './UserCave';
 
 type Wines = null | Array<IWines>
 
@@ -128,6 +129,7 @@ export default function Dashboard({ user }: { user: null | IUser }) {
                         <h5 className="title has-text-black has-text-centered mb-6">My Cave</h5>
                         <div className="columns has-text-centered is-centered is-centered m-6">
                             <div className="columns has-text-centered is-centered is-multiline">
+                                <UserCave user={user} fetchUser={fetchUser} />
                                 {wines?.map((wine) => {
                                     return <WineCardDashboard
                                         key={wine._id}

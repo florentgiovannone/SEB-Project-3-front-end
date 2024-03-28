@@ -7,6 +7,7 @@ import { IUser } from "../interfaces/user"
 import Footer from "./footer"
 
 
+
 function Showwine(this: any, { user }: { user: null | IUser }) {
 
     const [isNotificationOpen, setIsNotificationOpen] = useState(false);
