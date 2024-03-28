@@ -34,10 +34,10 @@ function Navbar({ user, setUser }: NavbarProps) {
             src={Logo}
             alt="Logo"
             style={{
-              height: '70px',
-              width: '70px',
-              objectFit: 'cover',
-}}
+              height: "70px",
+              width: "70px",
+              objectFit: "cover",
+            }}
           />
         </Link>
         <a
@@ -46,6 +46,7 @@ function Navbar({ user, setUser }: NavbarProps) {
           aria-label="menu"
           aria-expanded="false"
           onClick={toggleNavbar}
+          style={{ padding: "1rem" }} // Add padding to the toggle button
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -53,22 +54,37 @@ function Navbar({ user, setUser }: NavbarProps) {
         </a>
       </div>
 
-      <div className={`py-4 navbar-menu ${isActive ? "is-active" : ""}`}>
-        <div className="navbar-start">
-          <Link to="/" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+      <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
+        <div className="navbar-start" style={{ padding: "1rem" }}> {/* Add padding to the menu items */}
+          <Link
+            to="/"
+            className="navbar-item is-size-6 has-text-weight-semibold py-4" // Increase font size and padding
+          >
             Home
           </Link>
-          <Link to="/wines" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+          <Link
+            to="/wines"
+            className="navbar-item is-size-6 has-text-weight-semibold py-4" // Increase font size and padding
+          >
             Wine List API
           </Link>
-          <Link to="/aboutus" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+          <Link
+            to="/aboutus"
+            className="navbar-item is-size-6 has-text-weight-semibold py-4" // Increase font size and padding
+          >
             About us
           </Link>
-          <Link to="/contactus" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+          <Link
+            to="/contactus"
+            className="navbar-item is-size-6 has-text-weight-semibold py-4" // Increase font size and padding
+          >
             Contact us
           </Link>
           {user && (
-            <Link to="/create" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+            <Link
+              to="/create"
+              className="navbar-item is-size-6 has-text-weight-semibold py-4" // Increase font size and padding
+            >
               Create Wines
             </Link>
           )}
@@ -77,22 +93,33 @@ function Navbar({ user, setUser }: NavbarProps) {
         <div className="navbar-end">
           <div className="navbar-item py-0 px-3">
             <div className="buttons">
-
               {user ? (
                 <>
-                  <button onClick={logout} className="button is-light is-size-6 has-text-weight-semibold">
+                  <button
+                    onClick={logout}
+                    className="button is-light is-size-6 has-text-weight-semibold"
+                  >
                     Logout
                   </button>
-                  <Link to="/dashboard" className="navbar-item is-size-6 has-text-weight-semibold">
+                  <Link
+                    to="/dashboard"
+                    className="navbar-item is-size-6 has-text-weight-semibold"
+                  >
                     Dashboard
                   </Link>
                 </>
               ) : (
                 <>
-                    <Link to="/signup" className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper">
+                  <Link
+                    to="/signup"
+                    className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper"
+                  >
                     <strong>Sign up</strong>
                   </Link>
-                    <Link to="/login" className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper">
+                  <Link
+                    to="/login"
+                    className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper"
+                  >
                     Login
                   </Link>
                 </>
