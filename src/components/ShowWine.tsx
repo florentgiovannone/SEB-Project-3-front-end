@@ -132,7 +132,7 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
             {user && <button className="button m-6  border-is-rouge" onClick={addToCave}>Add to your Cave</button>}
             <div>{text && (
                 <div className="notification is-grey background-is-rouge" >
-                    <button className="delete" ></button>
+                    <button className="delete" onClick={() => setText('')} ></button>
                     {text}
                 </div>)}
             </div>
