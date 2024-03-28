@@ -133,18 +133,18 @@ function Footer() {
                 Contact Us
               </Link>
             </div>
-            <div className="level-right m-6 is-grey">
+            <div className="level-right m-6 has-text-grey">
               <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                <FacebookIcon className="text-white hover:text-gray-300" />
+                <FacebookIcon className="has-text-white custom-icon" />
               </a>
               <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                <XIcon className="text-white hover:text-gray-300" />
+                <XIcon className="has-text-white custom-icon" />
               </a>
               <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                <InstagramIcon className="text-white hover:text-gray-300" />
+                <InstagramIcon className="has-text-white custom-icon" />
               </a>
               <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                <LinkedinIcon className="text-white hover:text-gray-300" />
+                <LinkedinIcon className="has-text-white custom-icon" />
               </a>
             </div>
           </div>
