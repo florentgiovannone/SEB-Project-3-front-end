@@ -56,7 +56,7 @@ function Navbar({ user, setUser }: NavbarProps) {
       </div>
 
       <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
-        <div className="navbar-start" style={{ padding: "1rem" }}> {/* Add padding to the menu items */}
+        <div className="navbar-start" > 
           <Link
             to="/"
             className="navbar-item is-size-6 has-text-weight-semibold py-4" // Increase font size and padding
