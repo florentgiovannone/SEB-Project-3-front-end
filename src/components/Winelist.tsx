@@ -41,8 +41,7 @@ function wineList() {
     <>
       <section className="container">
         <div className="columns is-centered ">
-          <div className="column is-half-mobile">
-
+          <div className="container ">
             <input
               className="input background-is-rouge is-rounded mt-6"
               placeholder="Search character..."
@@ -71,7 +70,7 @@ function wineList() {
               })}
             </div>
           </div>
-          </div>
+        </div>
       </section>
 
       <Footer />
