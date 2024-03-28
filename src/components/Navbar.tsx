@@ -22,12 +22,14 @@ function Navbar({ user, setUser }: NavbarProps) {
         <div className="navbar-brand" >
           <Link to="/" >
             <img
+            className="p-2"
               alt="Logo"
               src={Logo}
               style={{
-                height: '80px',
-                width: '80px',
+                height: '70px',
+                width: '70px',
                 objectFit: 'cover',
+                
               }}
             />
           </Link>
@@ -35,31 +37,31 @@ function Navbar({ user, setUser }: NavbarProps) {
 
         <div className="navbar-menu">
           <div className="navbar-start">
-            <Link to="/" className="navbar-item is-size-5 has-text-weight-semibold">
+            <Link to="/" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
               Home
             </Link>
-            <Link to="/wines" className="navbar-item is-size-5 has-text-weight-semibold">
+            <Link to="/wines" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
               Wine List API
             </Link>
-            <Link to="/aboutus" className="navbar-item is-size-5 has-text-weight-semibold">
+            <Link to="/aboutus" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
               About us
             </Link>
-            <Link to="/contactus" className="navbar-item is-size-5 has-text-weight-semibold">
+            <Link to="/contactus" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
               Contact us
             </Link>
-            {user && <Link to="/create" className="navbar-item is-size-5 has-text-weight-semibold">
+            {user && <Link to="/create" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
               Create Wines
             </Link>}
           </div>
 
           <div className="navbar-end">
-            <div className="navbar-item">
+            <div className="navbar-item py-0 px-3">
               <div className="buttons">
                 {user ? (<>
-                  <button onClick={logout} className="button is-light is-size-5 has-text-weight-semibold">
+                  <button onClick={logout} className="button is-light is-size-6 has-text-weight-semibold">
                     Logout
                   </button>
-                              {user && <Link to="/dashboard" className="navbar-item is-size-5 has-text-weight-semibold">
+                              {user && <Link to="/dashboard" className="navbar-item is-size-6 has-text-weight-semibold">
                   Dashboard
                   </Link>}
                   </>

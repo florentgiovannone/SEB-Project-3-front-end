@@ -7,6 +7,8 @@ import year from "../assets/images/year.png"
 
 function ProductPage({ _id, winery, wineName, region, country, style, grapes, vintage, image }: IWines) {
   return <> <section>
+    <p className="title m-4">{winery}</p>
+    <p className="title m-4">{wineName}</p>
     <div className="columns">
       <div className="column is-two-fifths">
         <div className="card-image">
@@ -19,8 +21,7 @@ function ProductPage({ _id, winery, wineName, region, country, style, grapes, vi
         </div>
       </div>
       <div className="column is-half has-text-centered">
-        <p className="title m-4">{winery}</p>
-        <p className="title m-4">{wineName}</p>
+
         <div className="column">
           <div className="media m-6">
             <div className="media-left">

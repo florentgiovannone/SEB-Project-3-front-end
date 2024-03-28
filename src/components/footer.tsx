@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Wave from "react-wavify";
 import footerLogo from "../assets/images/rougepict.png";
 
-function FacebookIcon(props) {
+function FacebookIcon(props: any) {
   return (
     <svg
       {...props}
@@ -21,7 +21,7 @@ function FacebookIcon(props) {
   );
 }
 
-function InstagramIcon(props) {
+function InstagramIcon(props: any) {
   return (
     <svg
       {...props}
@@ -42,7 +42,7 @@ function InstagramIcon(props) {
   );
 }
 
-function LinkedinIcon(props) {
+function LinkedinIcon(props: any) {
   return (
     <svg
       {...props}
@@ -63,7 +63,7 @@ function LinkedinIcon(props) {
   );
 }
 
-function TwitterIcon(props) {
+function TwitterIcon(props: any) {
   return (
     <svg
       {...props}
@@ -82,7 +82,7 @@ function TwitterIcon(props) {
   );
 }
 
-function XIcon(props) {
+function XIcon(props: any) {
   return (
     <svg
       {...props}
@@ -116,7 +116,7 @@ function Footer() {
           points: 3,
         }}
       />
-      <footer className="footer background-is-rouge pb-8">
+      <footer className="footer background-is-rouge p-0" >
         <div className="content has-text-white has-text-centered">
           <div className="level">
             <div className="level-left">
@@ -154,7 +154,7 @@ function Footer() {
             <figure className="p-4 image is-96x96">
               <img src={footerLogo} alt="Rouge Logo" />
             </figure>
-            <h3>&copy; Rouge</h3>
+            <h3 className="pb-" >&copy; Rouge</h3>
           </div>
         </div>
       </footer>

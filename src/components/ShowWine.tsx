@@ -33,13 +33,6 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
     }, [])
 
     const [text, setText] = useState("")
-    // function handleCloseNotification() {
-    //     setIsNotificationOpen(false);
-    //     if (!isNotificationOpen) {
-    //         setText("")
-    //         window.location.reload();
-    //     }
-    // }
 
     function handleOpenNotification() {
         setIsNotificationOpen(true);
