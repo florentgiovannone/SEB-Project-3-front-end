@@ -29,7 +29,7 @@ function Navbar({ user, setUser }: NavbarProps) {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
+        <Link to="/" >
           <img
             src={Logo}
             alt="Logo"
