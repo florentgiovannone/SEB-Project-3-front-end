@@ -29,15 +29,15 @@ function Navbar({ user, setUser }: NavbarProps) {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <Link to="/" >
+        <Link to="/">
           <img
             src={Logo}
             alt="Logo"
             style={{
-              height: '70px',
-              width: '70px',
-              objectFit: 'cover',
-}}
+              height: "70px",
+              width: "70px",
+              objectFit: "cover",
+            }}
           />
         </Link>
         <a
@@ -55,20 +55,35 @@ function Navbar({ user, setUser }: NavbarProps) {
 
       <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
         <div className="navbar-start">
-          <Link to="/" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+          <Link
+            to="/"
+            className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3"
+          >
             Home
           </Link>
-          <Link to="/wines" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+          <Link
+            to="/wines"
+            className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3"
+          >
             Wine List API
           </Link>
-          <Link to="/aboutus" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+          <Link
+            to="/aboutus"
+            className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3"
+          >
             About us
           </Link>
-          <Link to="/contactus" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+          <Link
+            to="/contactus"
+            className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3"
+          >
             Contact us
           </Link>
           {user && (
-            <Link to="/create" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
+            <Link
+              to="/create"
+              className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3"
+            >
               Create Wines
             </Link>
           )}
@@ -77,22 +92,33 @@ function Navbar({ user, setUser }: NavbarProps) {
         <div className="navbar-end">
           <div className="navbar-item py-0 px-3">
             <div className="buttons">
-
               {user ? (
                 <>
-                  <button onClick={logout} className="button is-light is-size-6 has-text-weight-semibold">
+                  <button
+                    onClick={logout}
+                    className="button is-light is-size-6 has-text-weight-semibold"
+                  >
                     Logout
                   </button>
-                  <Link to="/dashboard" className="navbar-item is-size-6 has-text-weight-semibold">
+                  <Link
+                    to="/dashboard"
+                    className="navbar-item is-size-6 has-text-weight-semibold"
+                  >
                     Dashboard
                   </Link>
                 </>
               ) : (
                 <>
-                    <Link to="/signup" className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper">
+                  <Link
+                    to="/signup"
+                    className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper"
+                  >
                     <strong>Sign up</strong>
                   </Link>
-                    <Link to="/login" className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper">
+                  <Link
+                    to="/login"
+                    className="button is-rouge is-light is-size-5 has-text-weight-semibold button-wrapper"
+                  >
                     Login
                   </Link>
                 </>
