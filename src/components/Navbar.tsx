@@ -53,7 +53,7 @@ function Navbar({ user, setUser }: NavbarProps) {
         </a>
       </div>
 
-      <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
+      <div className={`px-4 navbar-menu ${isActive ? "is-active" : ""}`}>
         <div className="navbar-start">
           <Link to="/" className="navbar-item is-size-6 has-text-weight-semibold py-0 px-3">
             Home
