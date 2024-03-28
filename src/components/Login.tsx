@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import Footer from "./footer"
 import { baseUrl } from "../config";
 import React from "react";
+
 export default function Login({ fetchUser }: { fetchUser: Function }) {
 
   const navigate = useNavigate()
