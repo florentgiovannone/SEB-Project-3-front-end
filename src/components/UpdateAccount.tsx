@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import Footer from "./footer"
 import { IWines } from "../interfaces/wine"
 import { IUser } from "../interfaces/user"
-
+import { baseUrl } from "../config";
 export default function updateAccount({ user }: { user: null | IUser }) {
 
     const { userId } = useParams()
@@ -16,7 +16,7 @@ export default function updateAccount({ user }: { user: null | IUser }) {
 
     React.useEffect(() => {
         async function fetchwines() {
-            const resp = await fetch(`/api/rouge/user/${userId}`)
+            const resp = await fetch(`${baseUrl}/rouge/user/${userId}`)
             const winesData = await resp.json()
             setFormData(winesData)
         }
@@ -46,7 +46,7 @@ export default function updateAccount({ user }: { user: null | IUser }) {
         const token = localStorage.getItem('token')
         const newFormData = structuredClone(formData)
 
-        const resp = await axios.put(`/api/rouge/user/${userId}`, formData, {
+        const resp = await axios.put(`${baseUrl}/rouge/user/${userId}`, formData, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

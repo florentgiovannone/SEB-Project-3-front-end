@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { IWines } from "../interfaces/wine"
+import React from "react"
 
 function WineCard({ _id, winery, wineName, region, country, style, grapes, vintage, image, user }: IWines) {
   return <section className="mb-6 mt-6">

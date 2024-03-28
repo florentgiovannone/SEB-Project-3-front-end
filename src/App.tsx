@@ -15,6 +15,8 @@ import AboutUs from "./components/AboutUs"
 import ContactUs from "./components/ContactUs"
 import Dashboard from "./components/dashboard";
 import UpdateAccount from "./components/UpdateAccount";
+import { baseUrl } from "./config";
+import React from "react";
 
 
 
@@ -25,7 +27,7 @@ function App() {
 
   async function fetchUser() {
     const token = localStorage.getItem('token')
-    const resp = await axios.get(`/api/rouge/user`, {
+    const resp = await axios.get(`${baseUrl}/rouge/user`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     setUser(resp.data)

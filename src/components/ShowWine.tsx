@@ -5,7 +5,7 @@ import ProductPage from "./ProductPage"
 import axios from "axios"
 import { IUser } from "../interfaces/user"
 import Footer from "./footer"
-
+import { baseUrl } from "../config";
 
 function Showwine(this: any, { user }: { user: null | IUser }) {
 
@@ -25,7 +25,7 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
 
     React.useEffect(() => {
         async function fetchwines() {
-            const resp = await fetch(`/api/rouge/wines/${wineId}`)
+            const resp = await fetch(`${baseUrl}/rouge/wines/${wineId}`)
             const winesData = await resp.json()
             updatewines(winesData)
         }
@@ -40,7 +40,7 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
 
     async function fetchUser() {
         const token = localStorage.getItem('token')
-        const resp = await axios.get(`/api/rouge/user`, {
+        const resp = await axios.get(`${baseUrl}/rouge/user`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         updateCurrentUser(resp.data)
@@ -56,7 +56,7 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
     async function deleteWine(e: SyntheticEvent) {
         try {
             const token = localStorage.getItem('token')
-            const resp = await axios.delete('/api/rouge/wines/' + wineId, {
+            const resp = await axios.delete('${baseUrl}/rouge/wines/' + wineId, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             navigate('/wines')
@@ -89,7 +89,7 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
             e.preventDefault();
 
 
-            const resp = await axios.post(`/api/rouge/user/cave/${currentUserID}`, wine, {
+            const resp = await axios.post(`${baseUrl}/rouge/user/cave/${currentUserID}`, wine, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

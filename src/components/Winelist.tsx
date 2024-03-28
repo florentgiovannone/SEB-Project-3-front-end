@@ -2,14 +2,14 @@ import React from "react"
 import WineCard from "./Winecard"
 import { IWines } from "../interfaces/wine"
 import Footer from "./footer"
-
+import { baseUrl } from "../config";
 
 type Wines = null | Array<IWines>
 function wineList() {
   const [wines, setWines] = React.useState<Wines>(null)
   React.useEffect(() => {
     async function fetchWines() {
-      const resp = await fetch('/api/rouge/wines')
+      const resp = await fetch(`${baseUrl}/rouge/wines`)
       const data = await resp.json()
       setWines(data)
     }

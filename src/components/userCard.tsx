@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { IUser } from "../interfaces/user"
+import React from "react"
 
 function UserCard({ firstName, lastName, userName, _id, email, image }: IUser) {
   return <section className="m6">

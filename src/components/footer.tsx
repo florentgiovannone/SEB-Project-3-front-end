@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Wave from "react-wavify";
 import footerLogo from "../assets/images/rougepict.png";
+import React from "react";
 
 function FacebookIcon(props: any) {
   return (

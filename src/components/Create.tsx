@@ -2,6 +2,8 @@ import { SyntheticEvent, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import Footer from "./footer"
+import React from "react"
+import { baseUrl } from "../config";
 
 export default function CreateWine() {
 
@@ -33,7 +35,7 @@ export default function CreateWine() {
         try {
             e.preventDefault()
             const token = localStorage.getItem('token')
-            const resp = await axios.post('/api/rouge/wines', formData, {
+            const resp = await axios.post(`${baseUrl}/rouge/wines`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

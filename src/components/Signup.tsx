@@ -2,7 +2,8 @@ import { SyntheticEvent, useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
 import Footer from "./footer"
-
+import { baseUrl } from "../config";
+import React from "react";
 
 export default function Signup() {
 
@@ -38,7 +39,7 @@ export default function Signup() {
   async function handleSubmit(e: SyntheticEvent) {
     try {
       e.preventDefault()
-      const resp = await axios.post('/api/rouge/user', formData)
+      const resp = await axios.post(`${baseUrl}/rouge/user`, formData)
       console.log(resp.data)
       navigate('/login')
     } catch (e: any) {

@@ -6,7 +6,7 @@ import axios from "axios"
 import { IUser } from "../interfaces/user"
 import Footer from "./footer"
 import WineCardDashboard from "./WinecardDashboard"
-
+import { baseUrl } from "../config";
 type Wines = null | Array<IWines>
 function ShowUser({ user }: { user: null | IUser }) {
 
@@ -21,7 +21,7 @@ function ShowUser({ user }: { user: null | IUser }) {
     const [neededUser, setUser] = React.useState<IUser | null>(null)
     React.useEffect(() => {
         async function fetchwines() {
-            const resp = await fetch(`/api/rouge/user/${userId}`)
+            const resp = await fetch(`${baseUrl}/rouge/user/${userId}`)
             const userData = await resp.json()
             setUser(userData)
         }
@@ -32,7 +32,7 @@ function ShowUser({ user }: { user: null | IUser }) {
     React.useEffect(() => {
         async function fetchWines() {
             const token = localStorage.getItem('token')
-            const resp = await fetch(`/api/rouge/user/cave/${neededUser?._id}`)
+            const resp = await fetch(`${baseUrl}/rouge/user/cave/${neededUser?._id}`)
             const data = await resp.json()
             setWines(data.myCave)
 

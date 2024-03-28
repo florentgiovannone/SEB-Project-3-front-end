@@ -2,7 +2,8 @@ import { SyntheticEvent, useState } from "react"
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
 import Footer from "./footer"
-
+import { baseUrl } from "../config";
+import React from "react";
 export default function Login({ fetchUser }: { fetchUser: Function }) {
 
   const navigate = useNavigate()
@@ -25,7 +26,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
   async function handleSubmit(e: SyntheticEvent) {
     try {
       e.preventDefault()
-      const resp = await axios.post('/api/rouge/login', formData)
+      const resp = await axios.post(`${baseUrl}/rouge/login`, formData)
       localStorage.setItem('token', resp.data.token)
       console.log(resp.data)
       fetchUser()

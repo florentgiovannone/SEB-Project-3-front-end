@@ -2,6 +2,7 @@ import React from "react"
 import UserCard from "./userCard"
 import { IUser } from "../interfaces/user"
 import Footer from "./footer"
+import { baseUrl } from "../config"
 
 
 type User = null | Array<IUser>
@@ -9,7 +10,7 @@ function UserList() {
   const [user, setUser] = React.useState<User>(null)
   React.useEffect(() => {
     async function fetchuser() {
-      const resp = await fetch('/api/rouge/users')
+      const resp = await fetch(`${baseUrl}/rouge/users`)
       const data = await resp.json()
       setUser(data)
     }

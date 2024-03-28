@@ -1,10 +1,11 @@
 import { IUser } from "../interfaces/user"
 import { IWines } from "../interfaces/wine";
-import Footer from "./footer";
+import Footer from "./footer"
 import React, { SyntheticEvent, useEffect, useState } from "react"
 import axios from "axios";
 import WineCardDashboard from "./WinecardDashboard";
 import { useNavigate, useParams } from "react-router-dom"
+import { baseUrl } from "../config";
 
 type Wines = null | Array<IWines>
 
@@ -19,7 +20,7 @@ export default function Dashboard({ user }: { user: null | IUser }) {
 
     async function fetchUser() {
         const token = localStorage.getItem('token')
-        const resp = await axios.get(`/api/rouge/user`, {
+        const resp = await axios.get(`${baseUrl}/rouge/user`, {
             headers: { Authorization: `Bearer ${token}` }
         })
         updateCurrentUser(resp.data._id)
@@ -41,13 +42,13 @@ export default function Dashboard({ user }: { user: null | IUser }) {
                 return;
             }
             const token = localStorage.getItem('token')
-            const resp = await axios.post(`/api/rouge/user/verify-password`, { password: oldPassword }, {
+            const resp = await axios.post(`${baseUrl}/rouge/user/verify-password`, { password: oldPassword }, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             if (resp.data.isPasswordCorrect) {
                 const userId = user ? user._id : null;
                 if (userId) {
-                    const response = await axios.put(`/api/rouge/user/${userId}`, { password: newPassword }, {
+                    const response = await axios.put(`${baseUrl}/rouge/user/${userId}`, { password: newPassword }, {
                         headers: { Authorization: `Bearer ${token}` }
                     })
                     setLastPasswordChange(new Date(response.data.lastPasswordChange));
@@ -78,7 +79,7 @@ export default function Dashboard({ user }: { user: null | IUser }) {
     React.useEffect(() => {
         async function fetchWines() {
             const token = localStorage.getItem('token')
-            const resp = await fetch(`/api/rouge/user/cave/${currentUser}`,
+            const resp = await fetch(`${baseUrl}/rouge/user/cave/${currentUser}`,
                 { headers: { Authorization: `Bearer ${token}` } })
             const data = await resp.json()
             setWines(data.myCave)

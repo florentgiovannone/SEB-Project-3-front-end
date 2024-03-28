@@ -3,6 +3,7 @@ import { IWines } from "../interfaces/wine"
 import location from "../assets/images/location.png"
 import grapesStyle from "../assets/images/grapes.png"
 import year from "../assets/images/year.png"
+import React from "react"
 
 
 function ProductPage({ _id, winery, wineName, region, country, style, grapes, vintage, image }: IWines) {
