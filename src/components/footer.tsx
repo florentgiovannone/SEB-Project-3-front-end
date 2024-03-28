@@ -116,7 +116,7 @@ function Footer() {
           points: 3,
         }}
       />
-      <footer className="footer background-is-rouge p-0">
+      <footer className="footer background-is-rouge pb-8">
         <div className="content has-text-white has-text-centered">
           <div className="level">
             <div className="level-left">

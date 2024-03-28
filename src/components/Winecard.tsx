@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { IWines } from "../interfaces/wine"
 
 function WineCard({ _id, winery, wineName, region, country, style, grapes, vintage, image, user }: IWines) {
-  return <section className="m-6">
+  return <section className="mb-6 mt-6">
     <div style={{ height: 250, width: 250 }} className="card background-is-grey mgb-large m-3">
       <div className="card-content p-0 m-0">
         <div className="content">

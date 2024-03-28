@@ -94,7 +94,7 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
 
             setText("The wine was added");
             e.preventDefault();
-            window.location.reload();
+
 
             const resp = await axios.post(`/api/rouge/user/cave/${currentUserID}`, wine, {
                 headers: {
@@ -111,9 +111,9 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
 
         render() {
             return (<div>
-      // Stuff
                 {this.state.isModalOpen &&
-                    <Component onClose={() => this.setState({ isModalOpen: false })} />
+                    <Component onClose={() => this.setState({ isModalOpen: false })
+                } />
                 }
       // Stuff
             </div>);

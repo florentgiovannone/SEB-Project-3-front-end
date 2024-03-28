@@ -29,12 +29,12 @@ function wineList() {
   }
   const filteredLength: any = filterWines()?.length
   
-  return (<><section className="container m-8">
-    <div className="columns is-centered m-6">
-      <div className="container m-3">
+  return (<><section className="container">
+    <div className="columns is-centered ">
+      <div className="container ">
 
         <input
-          className="input background-is-rouge is-rounded m-3"
+          className="input background-is-rouge is-rounded"
           placeholder="Search character..."
           onChange={handleChange}
           value={search}
@@ -45,7 +45,7 @@ function wineList() {
 
         </div>}
 
-        <div className="columns is-multiline is-centered mb-6">
+        <div className="columns is-multiline is-centered">
           {filterWines()?.map((wine) => {
             return <WineCard
               key={wine._id}
