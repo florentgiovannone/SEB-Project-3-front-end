@@ -22,7 +22,7 @@ function Home({ user, setUser }: NavbarProps) {
             Rouge
           </h1>
           <h2 className="subtitle has-text-white">
-            an intuitiven & powerfull ine cellar builder
+            an intuitive & powerfull wine cellar builder
           </h2>
               {!user && <a href="/signup"><button className="button background-is-rouge m-4"  >Get Started</button></a>}
               {user && <a href="/wines"><button className="button background-is-rouge m-4"  >See all wines</button></a>}
