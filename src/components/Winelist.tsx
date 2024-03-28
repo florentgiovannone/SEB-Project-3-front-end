@@ -62,7 +62,7 @@ function wineList() {
                 return (
                   <div
                     key={wine._id}
-                    className="column is-half-desktop is-half-mobile"
+                    className="column is-half-desktop is-full-mobile"
                   >
                     <WineCard {...wine} />
                   </div>
