@@ -31,6 +31,7 @@ function Navbar({ user, setUser }: NavbarProps) {
       <div className="navbar-brand">
         <Link to="/">
           <img
+          className="p-2"
             src={Logo}
             alt="Logo"
             style={{
@@ -92,12 +93,12 @@ function Navbar({ user, setUser }: NavbarProps) {
 
         <div className="navbar-end">
           <div className="navbar-item py-0 px-3">
-            <div className="buttons">
+            <div className="buttons py-4">
               {user ? (
                 <>
                   <button
                     onClick={logout}
-                    className="button is-light is-size-6 has-text-weight-semibold"
+                    className="button is-light is-size-6 has-text-weight-semibold "
                   >
                     Logout
                   </button>
