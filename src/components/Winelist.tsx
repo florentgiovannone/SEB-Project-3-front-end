@@ -24,7 +24,11 @@ function wineList() {
 
   function filterWines() {
     return wines?.filter((wine: { wineName: string, winery: string }) => {
-      return wine.wineName.toLowerCase().includes(search.toLowerCase())
+      const lowerSearch = search.toLowerCase();
+      const lowerWineName = wine.wineName.toLowerCase();
+      const lowerWinery = wine.winery.toLowerCase();
+
+      return lowerWineName.includes(lowerSearch) || lowerWinery.includes(lowerSearch);
     });
   }
   const filteredLength: any = filterWines()?.length
@@ -34,12 +38,12 @@ function wineList() {
       <div className="container ">
 
         <input
-          className="input background-is-rouge is-rounded"
+          className="input background-is-rouge is-rounded mt-6"
           placeholder="Search character..."
           onChange={handleChange}
           value={search}
         />
-        {filteredLength === 0 && <div className="account  has-text-centered background-is-grey mb-5">
+        {filteredLength === 0 && <div className="account  has-text-centered background-is-grey mt-5">
           <p className="text is-black ">Cannot find your wine ?</p>
           <a href="/create"><button className="button  mb-3">Create new Wine</button></a>
 

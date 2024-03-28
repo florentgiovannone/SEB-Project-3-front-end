@@ -37,7 +37,7 @@ export default function Dashboard({ user }: { user: null | IUser }) {
     async function handleChangePassword() {
         try {
             if (newPassword !== confirmPassword) {
-                alert('New password and confirmed password do not match');
+                setErrorMessage('New password and confirmed password do not match');
                 return;
             }
             const token = localStorage.getItem('token')
@@ -54,14 +54,15 @@ export default function Dashboard({ user }: { user: null | IUser }) {
                     fetchUser()
                     setErrorMessage('Password has been changed');
                     setIsModalOpen(false);
+                    window.location.reload();
                 } else {
-                    console.error("User ID is null");
+                    setErrorMessage("User ID is null");
                 }
             } else {
                 setErrorMessage('Old password is incorrect');
             }
         } catch (error) {
-            console.error("Error updating password: ", error);
+            setErrorMessage("Error updating password: ");
         }
     }
 
@@ -117,7 +118,7 @@ export default function Dashboard({ user }: { user: null | IUser }) {
                                         {errorMessage && <small className="has-text-danger">{errorMessage}</small>}
                                 </section>
                                 <footer className="modal-card-foot">
-                                    <button className="button is-success background-is-rouge m-4" onClick={handleChangePassword}>Update Password</button>
+                                        <button className="button is-success background-is-rouge m-4" onClick={handleChangePassword }>Update Password</button>
                                 </footer>
                             </div>
                         </div>
