@@ -32,7 +32,7 @@ function wineList() {
     });
   }
   const filteredLength: any = filterWines()?.length
-  
+
   return (<><section className="container">
     <div className="columns is-centered ">
       <div className="container ">
@@ -66,7 +66,7 @@ function wineList() {
 
         </div>
       </div>
-      </div>
+    </div>
 
 
   </section>

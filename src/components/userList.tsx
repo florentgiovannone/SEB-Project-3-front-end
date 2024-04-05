@@ -24,7 +24,7 @@ function UserList() {
   }
 
   function filterWines() {
-    return user?.filter((user: { firstName: string}) => {
+    return user?.filter((user: { firstName: string }) => {
       return user.firstName.toLowerCase().includes(search.toLowerCase())
     });
   }
@@ -55,7 +55,7 @@ function UserList() {
 
         </div>
       </div>
-      </div>
+    </div>
 
 
   </section>

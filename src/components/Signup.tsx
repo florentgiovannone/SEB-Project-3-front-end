@@ -11,8 +11,8 @@ export default function Signup() {
 
   const [formData, setFormData] = useState({
     email: "",
-    firstName:"",
-    lastName:"",
+    firstName: "",
+    lastName: "",
     userName: "",
     image: "",
     password: "",
@@ -154,6 +154,6 @@ export default function Signup() {
       </form>
     </div>
   </div>
-  <Footer/>
+    <Footer />
   </>
 }

@@ -31,7 +31,7 @@ export default function UpdateWine({ user }: { user: null | IUser }) {
         style: "",
         grapes: "",
         vintage: "",
-        image:"", 
+        image: "",
     }
     )
 
@@ -120,7 +120,7 @@ export default function UpdateWine({ user }: { user: null | IUser }) {
                             className="input border-is-rouge"
                             placeholder="Grapes"
                             type="text"
-                            name={'grapes'} 
+                            name={'grapes'}
                             onChange={handleChange}
                             value={formData.grapes}
                         />
@@ -170,10 +170,10 @@ export default function UpdateWine({ user }: { user: null | IUser }) {
                         />
                     </div>
                 </div>
-                <div>{user &&<button onClick={handleSubmit} className="button m-6  border-is-rouge">Update</button>}</div>
+                <div>{user && <button onClick={handleSubmit} className="button m-6  border-is-rouge">Update</button>}</div>
             </form>
         </div>
 
     </div>
-            <Footer/></>
+        <Footer /></>
 }

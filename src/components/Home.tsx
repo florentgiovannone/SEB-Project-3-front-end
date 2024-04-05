@@ -17,16 +17,16 @@ function Home({ user, setUser }: NavbarProps) {
       <div className="hero-body p-6">
         <div className="container has-text-centered p-6">
           <div className="columns is-centered">
-          <div className="column is-half">
-          <h1 className="title has-text-white">
-            Rouge
-          </h1>
-          <h2 className="subtitle has-text-white">
-            an intuitive & powerfull wine cellar builder
-          </h2>
+            <div className="column is-half">
+              <h1 className="title has-text-white">
+                Rouge
+              </h1>
+              <h2 className="subtitle has-text-white">
+                an intuitive & powerfull wine cellar builder
+              </h2>
               {!user && <a href="/signup"><button className="button background-is-rouge m-4"  >Get Started</button></a>}
               {user && <a href="/wines"><button className="button background-is-rouge m-4"  >See all wines</button></a>}
-          </div>
+            </div>
           </div>
         </div>
       </div>

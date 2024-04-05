@@ -152,10 +152,10 @@ export default function updateAccount({ user }: { user: null | IUser }) {
                         />
                     </div>
                 </div> */}
-                <div>{user &&<button onClick={handleSubmit} className="button m-6  border-is-rouge">Update</button>}</div>
+                <div>{user && <button onClick={handleSubmit} className="button m-6  border-is-rouge">Update</button>}</div>
             </form>
         </div>
 
     </div>
-            <Footer/></>
+        <Footer /></>
 }

@@ -15,7 +15,7 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
     const { wineId } = useParams()
     const navigate = useNavigate()
 
- 
+
 
 
 
@@ -106,7 +106,7 @@ function Showwine(this: any, { user }: { user: null | IUser }) {
             return (<div>
                 {this.state.isModalOpen &&
                     <Component onClose={() => this.setState({ isModalOpen: false })
-                } />
+                    } />
                 }
       // Stuff
             </div>);

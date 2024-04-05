@@ -72,6 +72,6 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
       </form>
     </div>
   </div>
-    <Footer/>
+    <Footer />
   </>
 }

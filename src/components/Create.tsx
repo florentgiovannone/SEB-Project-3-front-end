@@ -17,7 +17,7 @@ export default function CreateWine() {
         style: "",
         grapes: "",
         vintage: "",
-        image:""
+        image: ""
     }
     )
 
@@ -41,7 +41,8 @@ export default function CreateWine() {
                 }
             })
             const newFormData = structuredClone(formData)
-            if (resp.data.message) {throw new Error(resp.data.message);
+            if (resp.data.message) {
+                throw new Error(resp.data.message);
             }
             navigate('/wines')
         } catch (e: any) {

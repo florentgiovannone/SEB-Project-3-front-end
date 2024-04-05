@@ -98,34 +98,34 @@ export default function Dashboard({ user }: { user: null | IUser }) {
                         <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Lastname:`}</span> {user?.lastName}</p>
                         <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Username:`}</span> {user?.userName}</p>
                         <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Email:`}</span> {user?.email}</p>
-                    <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Last password changed: `}</span> {lastPasswordChange ? lastPasswordChange.toLocaleDateString() : 'Not available'}</p>
+                        <p className="is-rouge has-text-weight-semibold has-text-centered mb-3"><span className="title has-text-black is-rouge is-4">{`Last password changed: `}</span> {lastPasswordChange ? lastPasswordChange.toLocaleDateString() : 'Not available'}</p>
                         <a href={`/updateaccount/${currentUser}`}><button className="button is-outlined background-is-rouge m-4 is-primary mt-4">Update account</button></a>
-                    <button className="button is-outlined background-is-rouge m-4 is-primary mt-4" onClick={handleOpenModal}>
-                        Change Password
-                    </button>
-    
-                    {isModalOpen && (
-                        <div className="modal is-active">
-                            <div className="modal-background" onClick={handleCloseModal}></div>
-                            <div className="modal-card">
-                                <header className="modal-card-head background-is-rouge">
-                                    <p className="modal-card-title has-text-white">Update Password</p>
-                                    <button className="delete" aria-label="close" onClick={handleCloseModal}></button>
-                                </header>
-                                <section className="modal-card-body">
-                                    <input className="input" type="password" value={oldPassword} onChange={e => setOldPassword(e.target.value)} placeholder="Old Password" />
-                                    <input className="input mt-4" type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder="New Password" />
-                                    <input className="input mt-4" type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm New Password" />
+                        <button className="button is-outlined background-is-rouge m-4 is-primary mt-4" onClick={handleOpenModal}>
+                            Change Password
+                        </button>
+
+                        {isModalOpen && (
+                            <div className="modal is-active">
+                                <div className="modal-background" onClick={handleCloseModal}></div>
+                                <div className="modal-card">
+                                    <header className="modal-card-head background-is-rouge">
+                                        <p className="modal-card-title has-text-white">Update Password</p>
+                                        <button className="delete" aria-label="close" onClick={handleCloseModal}></button>
+                                    </header>
+                                    <section className="modal-card-body">
+                                        <input className="input" type="password" value={oldPassword} onChange={e => setOldPassword(e.target.value)} placeholder="Old Password" />
+                                        <input className="input mt-4" type="password" value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder="New Password" />
+                                        <input className="input mt-4" type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder="Confirm New Password" />
                                         {errorMessage && <small className="has-text-danger">{errorMessage}</small>}
-                                </section>
-                                <footer className="modal-card-foot">
-                                        <button className="button is-success background-is-rouge m-4" onClick={handleChangePassword }>Update Password</button>
-                                </footer>
+                                    </section>
+                                    <footer className="modal-card-foot">
+                                        <button className="button is-success background-is-rouge m-4" onClick={handleChangePassword}>Update Password</button>
+                                    </footer>
+                                </div>
                             </div>
-                        </div>
-                    )}
-                </div>
-    
+                        )}
+                    </div>
+
                     <div className="account column is-rounded background-is-grey  m-6">
                         <h5 className="title has-text-black has-text-centered mb-6">My Cave</h5>
                         <div className="columns has-text-centered is-centered is-centered m-6">
