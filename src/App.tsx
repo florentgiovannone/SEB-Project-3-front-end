@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-
 import Home from './components/Home'
 import Navbar from "./components/Navbar"
 import WineList from "./components/Winelist"
-import UserList from "./components/userList";
+import UserList from "./components/UserList";
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Create from "./components/Create"
@@ -13,7 +13,7 @@ import ShowWine from "./components/ShowWine"
 import ShowUser from "./components/ShowUser";
 import AboutUs from "./components/AboutUs"
 import ContactUs from "./components/ContactUs"
-import Dashboard from "./components/dashboard";
+import Dashboard from "./components/Dashboard";
 import UpdateAccount from "./components/UpdateAccount";
 import { baseUrl } from "./config";
 import React from "react";
