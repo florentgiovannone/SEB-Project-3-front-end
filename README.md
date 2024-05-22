@@ -105,9 +105,9 @@ This was a 5-day project to be worked on as a team of two, and I was paired with
 
 ## Technologies used
 
-Frontend app using React.js to build the user interface, with routing managed by React Router.
-Hybrid CSS using Bulma as a framework and some custom CSS.
-Express to build our API.
+- Frontend: Developed using React.js to build the user interface, with routing managed by React Router.
+- CSS: Utilized a hybrid approach with Bulma as the framework along with some custom CSS.
+- Backend: Built the API using Express.
 
 ## Breif
 The objective of this project was to build a React application using our own API, which we learned about during our class lessons.
