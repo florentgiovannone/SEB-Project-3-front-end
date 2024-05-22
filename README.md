@@ -13,7 +13,10 @@
   - [Dashboard](#dashboard)
   - [Other user's page](#other-users-page)
   - [Change password page](#change-passsword-page)
+- [Technologies used](#technologies-used)
 - [Breif](#breif)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
 - [Planning](#planning)
 - [Build Code Process](#build-code-process)
   - [Change password component code](#change-password-component)
@@ -26,26 +29,27 @@
 ## Description
 ### Technical requirement
 
-Work in a team, using git to code collaboratively.
-Build a full-stack application by making your own backend and your own front-end
-Use an Express API with mongoose to serve your data from a Mongo database
-Consume your API with a separate front-end built with React
-Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models
-Implement thoughtful user stories/wireframes that are significant enough to help you know which features are core MVP and which you can cut
-Have a visually impressive design to kick your portfolio up a notch and have something to wow future clients & employers. ALLOW time for this.
-Be deployed online so it's publicly accessible.
+Work in a team, using Git to code collaboratively.
+Build a full-stack application by creating your own backend and your own front-end.
+Use an Express API with Mongoose to serve your data from a MongoDB database.
+Consume your API with a separate front-end built with React.
+Create a complete product, which most likely means having multiple relationships and CRUD functionality for at least a couple of models.
+Implement thoughtful user stories and wireframes that are significant enough to help you know which features are core MVP and which you can cut.
+Design a visually impressive interface to enhance your portfolio and have something to wow future clients and employers. Allow time for this.
+Deploy your application online so it is publicly accessible.
 
 
 ### main app
 
-We decided to work on a wine cave app where users can signup and login. Eache user would be able to:
--Create new wines
--update wine that only the user have created
--delete wines that only the user have created
--Update account details
--Change password
--look for other users
--Se other users profils and caves
+We decided to work on a wine cave app where users can sign up and log in. Each user will be able to:
+
+- Create new wines
+- Update wines that only the user has created
+- Delete wines that only the user has created
+- Update account details
+- Change password
+- Look for other users
+- See other users' profiles and caves
 
 ## Deployement
 
@@ -60,17 +64,12 @@ We have use Netify to deploy our app
 
 ## Timeframe & Working Team
 
-This was a 5 days project to be worked as a team of 2 and |I was paired with Dinul Haque
-We worked as partner programing style: 
--The setup part of the project was worked as a driver navigator
-- We meet every 4 hours to discussed what would need to be done and split the work load evently 
-- We then made sure to be available in case if we needed to reach out to each other 
-- For the last day we worked as a driver navigator style for the small details amd deployment 
+This was a 5-day project to be worked on as a team of two, and I was paired with Dinul Haque. We worked in a pair programming style:
 
-Technologie used
-Frontend app using React.js to use the builder interface using a router on the main app
-Hybrid CSS using Bulma as a framework  and some custom CSS
-express to build our API
+- The setup part of the project was done in a driver-navigator format.
+- We met every 4 hours to discuss what needed to be done and to split the workload evenly.
+- We ensured we were available in case we needed to reach out to each other.
+- On the last day, we worked in a driver-navigator style to handle the small details and deployment.
 
 ### Home page
 
@@ -104,26 +103,31 @@ express to build our API
 
 ![Change password page](./src/assets/images/change_password.png)
 
+## Technologies used
+
+Frontend app using React.js to build the user interface, with routing managed by React Router.
+Hybrid CSS using Bulma as a framework and some custom CSS.
+Express to build our API.
+
 ## Breif
-The objective of this project was to build a React application using our own API we learned during our classes lessons.
+The objective of this project was to build a React application using our own API, which we learned about during our class lessons.
 
-### Front End
-This had to included APi fetching, Routing and mapping onl secting whta was needed from the API.
-The document structure had to use Different component using router and routes on the main app
+### Frontend
+This involved API fetching, routing, and mapping, selectively extracting required data from the API. The document structure comprised different components, managed with routing and routes in the main app.
 
-### Back end
-We had to build the back end using express.js. 
-The data structure was done using the VMC (view(router) - Model - Controller)
--View: this is were the router with all the Route are located 
--Model: This is where all our model and schemas are located and were we tell our backend what element are mandatory to create a new entry.
--Controller: This is where we had all our function depending on what we wanted the user to do(Example: create and account or a new wine or just login)
+### Backend
+We developed the back end using Express.js. The data structure adhered to the MVC (Model-View-Controller) pattern:
+- **View**: This contained the router with all the routes.
+- **Model**: Here, we defined models and schemas, specifying mandatory elements for new entries.
+- **Controller**: This section housed functions for user actions (e.g., creating an account, adding a new wine, or logging in).
 
-We used Mongoose DB as our database
-
-We also had a seed folder where all our original database was going to be seeded originally 
+We employed MongoDB with Mongoose as our database. Additionally, we maintained a seed folder for the initial database entries.
 
 
 ## Planning
+Before starting, we planned using wireframing.
+
+We also had thorough pseudo-coding prior to dividing tasks.
 ### Front end
 ```plaintext
 |--public
@@ -192,10 +196,25 @@ We also had a seed folder where all our original database was going to be seeded
 ## Build Code Process
 Dinul and I initiated the project by seting up the MVC structure and the react framework.
 We were particulary proud of the add wine to cave function for both front and back end and the change password functionallity which gave added value to the final product 
+Highlights of our collaboration include:
 
+- **WinesList:** A component for displaying Wines.
+- **WinesCard:** A page component for detailed wines information.
+- **API Integration:** Utilized `fetch` to retrieve wine data from MongoDB.
+- **State Management:** Employed React hooks (`useState`, `useEffect`) for efficient data management and fetching.
+- **ChangePassword:** A function to give the user the possibility to change password
+- **AddWine:** A function to favourite wines.
+
+On a personal note, my contributions included:
+- Handling most of the frontend development tasks, such as mapping the fetched API data.
+- Designing the overall look of the app using Bulma.
+- Developing the entire logic for both the frontend and backend aspects of the "add to cave" functionality.
 
 ### Change password component
+For the handle change password, we had both a front-end and a back-end part:
+
 #### Front End
+For the front end, we needed to fetch the current user with the userId. Then, we updated the user's information with the provided data. Additionally, we implemented error handling to manage cases where incorrect information was provided.
 ```jsx
     async function handleChangePassword() {
         try {
@@ -230,6 +249,7 @@ We were particulary proud of the add wine to cave function for both front and ba
     }
 ```
 #### Back end
+For the backend we needed to check what the body includes and added a password confirmation to increase security 
 ```jsx
 export async function verifyPassword(req: Request, res: Response) {
     try {
@@ -250,7 +270,10 @@ export async function verifyPassword(req: Request, res: Response) {
 ```
 
 ### Add wine to the cave function
+For the Add to cave function, we had both a front-end and a back-end part:
+
 #### Front end
+The front end a mostly the error handling a comunication to the user that the the action has been done or not
 ```jsx
     async function addToCave(e: SyntheticEvent) {
         try {
@@ -287,6 +310,8 @@ export async function verifyPassword(req: Request, res: Response) {
 ```
 
 #### Back end
+For the backend we get the user id and use it to find the user.
+we then push the selected wine into the Mycave Array 
 ```jsx
 export async function updateCave(req: Request, res: Response) {
     console.log('HIT UPDATE CAVE ROUTE');
@@ -318,20 +343,26 @@ export async function updateCave(req: Request, res: Response) {
 ```
 
 ## Wins
-After this project I now feel much more comfident developing a fullstack app using react.js and express.js 
-I understand how a back end work and how all my end point are talking to each orther
-Also working as a pair trained me for the first time to work as a team. doing regular checkup with my teammate made a big difference 
+Boosting Confidence in Express and comfirm the React work done before:
+- **First touch in backend developement:** I reaaly enjoyed working in express.js and getting the first expeerience with backend developement 
+- **Building you own API with noSQL:** I found really fun a intuitive the no SQL form of building an API 
+
+## Chanllenges
+The main challenge for this project revolved around implementing the "add to cave" functionality.
+
+The primary issue was ensuring the ability to push wines into a new array inside an array, while correctly targeting the corresponding part of the API for each user.
+
 
 ## Key learning/Takeaway
-1/ The main issues with then app arisen when we had to create the add wine to cave functionallity. To fix this we spent few hours debuggin first the backend to be able to add wines to the cave on insomnia and then we apllied it to the front end 
+1. The main issues with the app arose when we had to create the "add wine to cave" functionality. To resolve this, we spent a few hours debugging first the backend to enable adding wines to the cave using Insomnia, and then we applied it to the frontend.
 
-2/ The second issue came with the change password functionallity. We needed to find a way to get the password from the datrabase and updated it hashing it again .
+2. The second issue arose with the "change password" functionality. We needed to find a way to retrieve the password from the database and update it by hashing it again.
 
 ## Bugs
-When adding a wine the user would have to close the modal to refresh the page. If this isn't done the user could add the wine multiple time which isn't great 
+When adding a wine, the user would have to close the modal to refresh the page. If this isn't done, the user could accidentally add the wine multiple times, which isn't ideal.
 
 ## Future Improvements
--Have the possibility to add an image instead of a link when creating or updating a user or a wine, we wanted to do this with Cloudify but we lacked time and resources.
--Have the functionallity to contact other user
--Have the functionallity to follow other user and be followed by other users
--Comment and rate each wines 
+- Have the possibility to add an image instead of a link when creating or updating a user or a wine. We wanted to implement this using Cloudify, but we lacked time and resources.
+- Implement the functionality to contact other users.
+- Implement the functionality to follow other users and be followed by other users.
+- Allow users to comment on and rate each wine.

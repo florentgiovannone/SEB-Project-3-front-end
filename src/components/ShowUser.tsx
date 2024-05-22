@@ -4,7 +4,7 @@ import { IWines } from "../interfaces/wine"
 import ProductPage from "./ProductPage"
 import axios from "axios"
 import { IUser } from "../interfaces/user"
-import Footer from "./footer"
+import Footer from "./Footer"
 import WineCardDashboard from "./WinecardDashboard"
 import { baseUrl } from "../config";
 type Wines = null | Array<IWines>
