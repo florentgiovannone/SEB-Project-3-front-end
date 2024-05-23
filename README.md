@@ -14,7 +14,7 @@
   - [Other user's page](#other-users-page)
   - [Change password page](#change-passsword-page)
 - [Technologies used](#technologies-used)
-- [Breif](#breif)
+- [Brief](#breif)
     - [Frontend](#frontend)
     - [Backend](#backend)
 - [Planning](#planning)
@@ -22,7 +22,8 @@
   - [Change password component code](#change-password-component)
   - [Add-wine-to-the-cave-function code](#add-wine-to-the-cave-function)
 - [Wins](#wins)
-- [Key Learning/Takeway ](#key-learningtakeaway)
+- [Challenges](#chalenges)
+- [Key Learnings/Takeways ](#key-learningtakeaway)
 - [Bugs](#bugs)
 - [Future Improvements](#future-improvements)
 
@@ -39,7 +40,7 @@ Design a visually impressive interface to enhance your portfolio and have someth
 Deploy your application online so it is publicly accessible.
 
 
-### main app
+### Main app
 
 We decided to work on a wine cave app where users can sign up and log in. Each user will be able to:
 
@@ -106,10 +107,10 @@ This was a 5-day project to be worked on as a team of two, and I was paired with
 ## Technologies used
 
 - Frontend: Developed using React.js to build the user interface, with routing managed by React Router.
-- CSS: Utilized a hybrid approach with Bulma as the framework along with some custom CSS.
+- CSS: Utilised a hybrid approach with Bulma as the framework along with some custom CSS.
 - Backend: Built the API using Express.
 
-## Breif
+## Brief
 The objective of this project was to build a React application using our own API, which we learned about during our class lessons.
 
 ### Frontend
@@ -195,12 +196,13 @@ We also had thorough pseudo-coding prior to dividing tasks.
 
 ## Build Code Process
 Dinul and I initiated the project by seting up the MVC structure and the react framework.
-We were particulary proud of the add wine to cave function for both front and back end and the change password functionallity which gave added value to the final product 
+We were particulary proud of the add wine to cave function for both front and back end and the change password functionallity which added value to the final product.
+
 Highlights of our collaboration include:
 
 - **WinesList:** A component for displaying Wines.
 - **WinesCard:** A page component for detailed wines information.
-- **API Integration:** Utilized `fetch` to retrieve wine data from MongoDB.
+- **API Integration:** Utilised `fetch` to retrieve wine data from MongoDB.
 - **State Management:** Employed React hooks (`useState`, `useEffect`) for efficient data management and fetching.
 - **ChangePassword:** A function to give the user the possibility to change password
 - **AddWine:** A function to favourite wines.
@@ -211,10 +213,11 @@ On a personal note, my contributions included:
 - Developing the entire logic for both the frontend and backend aspects of the "add to cave" functionality.
 
 ### Change password component
-For the handle change password, we had both a front-end and a back-end part:
+This part of the project was handled by my pair colleague Dinul.
+For the handle change password, we had both a frontend and a backend part:
 
-#### Front End
-For the front end, we needed to fetch the current user with the userId. Then, we updated the user's information with the provided data. Additionally, we implemented error handling to manage cases where incorrect information was provided.
+#### Frontend
+For the frontend, we needed to fetch the current user with the userId. Then, we updated the user's information with the provided data. Additionally, we implemented error handling to manage cases where incorrect information was provided.
 ```jsx
     async function handleChangePassword() {
         try {
@@ -248,7 +251,7 @@ For the front end, we needed to fetch the current user with the userId. Then, we
         }
     }
 ```
-#### Back end
+#### Backend
 For the backend we needed to check what the body includes and added a password confirmation to increase security 
 ```jsx
 export async function verifyPassword(req: Request, res: Response) {
@@ -270,10 +273,13 @@ export async function verifyPassword(req: Request, res: Response) {
 ```
 
 ### Add wine to the cave function
+This part of the projec was handled by myself.
 For the Add to cave function, we had both a front-end and a back-end part:
 
 #### Front end
-The front end a mostly the error handling a comunication to the user that the the action has been done or not
+The frontend is mostly the error handling communication letting the user know if the action has been done or not, such as:
+- "The wine was added"
+- "This wine is already in your cave."
 ```jsx
     async function addToCave(e: SyntheticEvent) {
         try {
@@ -310,8 +316,7 @@ The front end a mostly the error handling a comunication to the user that the th
 ```
 
 #### Back end
-For the backend we get the user id and use it to find the user.
-we then push the selected wine into the Mycave Array 
+For the backend, we get the userId and use it to find the user. We then push the selected wine into the myCave Array.
 ```jsx
 export async function updateCave(req: Request, res: Response) {
     console.log('HIT UPDATE CAVE ROUTE');
@@ -343,20 +348,22 @@ export async function updateCave(req: Request, res: Response) {
 ```
 
 ## Wins
-Boosting Confidence in Express and comfirm the React work done before:
+Boosting confidence in Express and as well as React used in previous projects:
 - **First touch in backend developement:** I reaaly enjoyed working in express.js and getting the first expeerience with backend developement 
-- **Building you own API with noSQL:** I found really fun a intuitive the no SQL form of building an API 
+- **Building your own API with noSQL:** I found the no SQL form of building a public API really fun and intuitive.
 
-## Chanllenges
+## Challenges
+1. The main issues with the app arose when we had to create the "add wine to cave" functionality. To resolve this, we spent a few hours debugging first the backend to enable adding wines to the cave using Insomnia, and then we applied it to the frontend.
 The main challenge for this project revolved around implementing the "add to cave" functionality.
 
 The primary issue was ensuring the ability to push wines into a new array inside an array, while correctly targeting the corresponding part of the API for each user.
 
+2. The second issue arose with the "change password" functionality. We needed to find a way to retrieve the password from the database and update it by hashing it again.
 
 ## Key learning/Takeaway
-1. The main issues with the app arose when we had to create the "add wine to cave" functionality. To resolve this, we spent a few hours debugging first the backend to enable adding wines to the cave using Insomnia, and then we applied it to the frontend.
 
-2. The second issue arose with the "change password" functionality. We needed to find a way to retrieve the password from the database and update it by hashing it again.
+
+
 
 ## Bugs
 When adding a wine, the user would have to close the modal to refresh the page. If this isn't done, the user could accidentally add the wine multiple times, which isn't ideal.
