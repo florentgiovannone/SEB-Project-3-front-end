@@ -23,7 +23,6 @@
   - [Add-wine-to-the-cave-function code](#add-wine-to-the-cave-function)
 - [Wins](#wins)
 - [Challenges](#chalenges)
-- [Key Learnings/Takeways ](#key-learningtakeaway)
 - [Bugs](#bugs)
 - [Future Improvements](#future-improvements)
 
@@ -349,6 +348,7 @@ export async function updateCave(req: Request, res: Response) {
 
 ## Wins
 Boosting confidence in Express and as well as React used in previous projects:
+
 - **First touch in backend developement:** I reaaly enjoyed working in express.js and getting the first expeerience with backend developement 
 - **Building your own API with noSQL:** I found the no SQL form of building a public API really fun and intuitive.
 
@@ -359,11 +359,6 @@ The main challenge for this project revolved around implementing the "add to cav
 The primary issue was ensuring the ability to push wines into a new array inside an array, while correctly targeting the corresponding part of the API for each user.
 
 2. The second issue arose with the "change password" functionality. We needed to find a way to retrieve the password from the database and update it by hashing it again.
-
-## Key learning/Takeaway
-
-
-
 
 ## Bugs
 When adding a wine, the user would have to close the modal to refresh the page. If this isn't done, the user could accidentally add the wine multiple times, which isn't ideal.
